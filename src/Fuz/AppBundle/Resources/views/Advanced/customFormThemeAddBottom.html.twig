@@ -25,11 +25,16 @@
         elements. If you feel that the <code>&gt; div</code> selector should be customizable in a plugin option, please open an issue on Github.
     </p>
 
+    <p>
+        In this example, <code>add-at-the-end</code> is set to true, so instead of seeing your add buttons close to each fields, you can see
+        it at the bottom of the form.
+    </p>
+
     {{
         github([
             'Controller/AdvancedController.php',
-            'Resources/views/Advanced/customFormTheme.html.twig',
             'Resources/views/Advanced/advanced-theme.html.twig',
+            'Resources/views/Advanced/customFormThemeAddBottom.html.twig',
         ])
     }}
 
@@ -51,7 +56,8 @@
 
     <script type="text/javascript">
         $('.collection').collection({
-            'add': '<a href="#" class="btn btn-default">Add</a>'
+            'add': '<a href="#" class="btn btn-default">Add</a>',
+            'add_at_the_end': true
         });
     </script>
 

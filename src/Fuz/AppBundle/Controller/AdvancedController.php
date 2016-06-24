@@ -105,6 +105,20 @@ class AdvancedController extends BaseController
     /**
      * Advanced usage
      *
+     * Same demo as above, but with the add button located at the bottom of
+     * the form instead of close to each field.
+     *
+     * @Route("/customFormThemeAddBottom", name="customFormThemeAddBottom")
+     * @Template()
+     */
+    public function customFormThemeAddBottomAction(Request $request)
+    {
+        return $this->customFormThemeAction($request);
+    }
+
+    /**
+     * Advanced usage
+     *
      * Collection of collections are useful on the most dynamic forms, and a good
      * way to test if the plugin is working as expected too.
      *

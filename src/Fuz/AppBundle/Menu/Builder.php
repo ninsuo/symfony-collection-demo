@@ -27,6 +27,7 @@ class Builder extends BaseMenu
         $this->addSubMenu($menu, 'Advanced usage');
         $this->addRoute($menu['Advanced usage'], "A better MVC Compliance", "mvcCompliance");
         $this->addRoute($menu['Advanced usage'], "Custom form theme", "customFormTheme");
+        $this->addRoute($menu['Advanced usage'], "Custom form theme with only one add button", "customFormThemeAddBottom");
         $this->addRoute($menu['Advanced usage'], "Collection of form collections", "collectionOfCollections");
         $this->addRoute($menu['Advanced usage'], "Usage with Doctrine", "usageWithDoctrine");
         $this->addRoute($menu['Advanced usage'], "Example wtih multiple fields", "formHavingSeveralFields");

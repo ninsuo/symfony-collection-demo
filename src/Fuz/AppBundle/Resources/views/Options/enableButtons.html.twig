@@ -10,9 +10,9 @@
 
     <h2>{{ block('title') }}</h2>
 
-    <p>Use <code>allowe_up</code>, <code>allow_down</code>, <code>allow_add</code> and <code>allow_delete</code> options to disable some buttons</p>
+    <p>Use <code>allowe_up</code>, <code>allow_down</code>, <code>allow_add</code> and <code>allow_remove</code> options to disable some buttons</p>
 
-    <p><b>Warning</b>: if you're using the plugin's form theme, <code>allow_add</code> and <code>allow_delete</code> are taken from your form type configuration.</p>
+    <p><b>Warning</b>: if you're using the plugin's form theme, <code>allow_add</code> and <code>allow_remove</code> are taken from your form type configuration.</p>
 
     {{
         github([
@@ -41,7 +41,7 @@
        </div>
       <div class="checkbox">
          <label>
-           <input id="delete"  class="reload-collection" type="checkbox" checked/> Enable Delete
+           <input id="remove"  class="reload-collection" type="checkbox" checked/> Enable Remove
          </label>
        </div>
       <div class="checkbox">
@@ -98,7 +98,7 @@
            allow_up: $('#up').is(':checked'),
            allow_down: $('#down').is(':checked'),
            allow_add: $('#add').is(':checked'),
-           allow_delete: $('#delete').is(':checked'),
+           allow_remove: $('#remove').is(':checked'),
            allow_duplicate: $('#duplicate').is(':checked')
         });
 
@@ -107,7 +107,7 @@
            allow_up: $('#up').is(':checked'),
            allow_down: $('#down').is(':checked'),
            allow_add: $('#add').is(':checked'),
-           allow_delete: $('#delete').is(':checked'),
+           allow_remove: $('#remove').is(':checked'),
            allow_duplicate: $('#duplicate').is(':checked')
         });
       }

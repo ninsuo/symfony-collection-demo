@@ -50,17 +50,23 @@
 
     <h3>By using {% verbatim %}{{ form_widget() }} {% endverbatim %} without form theme</h3>
 
-    {% form_theme formB 'FuzAppBundle::jquery.collection.html.twig' %}
-
     {{ form_start(formB) }}
 
-    <div class="collectionB">
-
-        {% for element in formB.tasks %}
-            {{ form_widget(element) }}
-            {{ form_errors(formB.tasks) }}
+    <div
+        id="formB-demo"
+        class="collectionB"
+        {% if formB.tasks.vars.prototype is defined %}
+            data-prototype="{{ form_widget(formB.tasks.vars.prototype)|e('html_attr') }}"
+            data-prototype-name="{{ formB.tasks.vars.prototype.vars.name|e('html_attr') }}"
+        {% endif %}
+        data-allow-add="{{ formB.tasks.vars.allow_add }}"
+        data-allow-remove="{{ formB.tasks.vars.allow_delete }}"
+        data-name-prefix="{{ formB.tasks.vars.full_name }}"
+     >
+        {% for task in formB.tasks %}
+            {{ form_widget(task) }}
+            {{ form_errors(task) }}
         {% endfor %}
-
     </div>
 
     {{ form_end(formB) }}

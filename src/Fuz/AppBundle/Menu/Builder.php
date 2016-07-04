@@ -18,7 +18,8 @@ class Builder extends BaseMenu
         $this->addRoute($menu['JavaScript Options'], "Enable / Disable buttons", 'enableButtons');
         $this->addRoute($menu['JavaScript Options'], "Control number of collection's elements", 'numberCollectionElements');
         $this->addRoute($menu['JavaScript Options'], "Change Add button's location", 'addButtonAtTheBottom');
-        $this->addRoute($menu['JavaScript Options'], "Event callbacks", 'eventCallbacks');
+        $this->addRoute($menu['JavaScript Options'], "Button event callbacks", 'eventCallbacks');
+        $this->addRoute($menu['JavaScript Options'], "Initialization callbacks", 'initCallbacks');
         $this->addRoute($menu['JavaScript Options'], "Without form theme", 'withoutFormTheme');
         $this->addRoute($menu['JavaScript Options'], "Initialized with a given minimum of elements", 'givenMinimumElements');
         $this->addRoute($menu['JavaScript Options'], "Hide Up and Down buttons on useless elements", 'hideMoveUpDown');

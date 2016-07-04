@@ -141,4 +141,17 @@ class OptionsController extends BaseController
             'startupdate' => $this->createAdvancedContextSample($request, 'startupdate'),
        );
     }
+
+    /**
+     * JavaScript options
+     *
+     * Run a callback before and after collection initialization
+     *
+     * @Route("/initCallbacks", name="initCallbacks")
+     * @Template()
+     */
+    public function initCallbacksAction(Request $request)
+    {
+        return $this->createContextSample($request);
+    }
 }

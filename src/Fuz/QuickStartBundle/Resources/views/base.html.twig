@@ -72,7 +72,7 @@
 
          {# JS #}
         {% block js %}
-            <script src="{{ asset('js/jquery.js') }}"></script>
+            <script src="{% block jquery %}{{ asset('js/jquery.js') }}{% endblock %}"></script>
             <script src="{{ asset('js/bootstrap.js') }}"></script>
             <script src="{{ asset('bundles/fuzquickstart/bootstrap-submenu/js/bootstrap-submenu.min.js') }}"></script>
             <script src="{{ asset('bundles/fuzquickstart/jquery-ui-1.11.2/jquery-ui.min.js') }}"></script>

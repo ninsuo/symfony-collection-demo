@@ -1,4 +1,4 @@
-Symfony2 Collection demo website
+Symfony Collection demo website
 ========================
 
 ## See this website [live](http://symfony-collection.fuz.org/)
@@ -7,7 +7,7 @@ Symfony2 Collection demo website
 
 ## Installation
 
-This is a classic Symfony2 project based on [Symfony2 QuickStart](https://github.com/ninsuo/symfony2-quickstart).
+This is a classic Symfony project based on the 2.x version of [Symfony QuickStart](https://github.com/ninsuo/symfony2-quickstart).
 
 ```sh
 php -r "readfile('https://getcomposer.org/installer');" | php
@@ -32,5 +32,5 @@ This way, you can easily read the sample's code.
 
 - This project is released under the MIT license
 
-- Fuz logo is © 2013-2015 Alain Tiemblo
+- Fuz logo is © 2013-2042 Alain Tiemblo
 

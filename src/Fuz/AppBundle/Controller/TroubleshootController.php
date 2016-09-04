@@ -59,4 +59,52 @@ class TroubleshootController extends BaseController
             'dataC' => $dataC,
         );
     }
+
+    /**
+     * A form having a theme and containing several fields
+     *
+     * @Route(
+     *      "/custom-jquery-version",
+     *      name = "customJqueryVersion"
+     * )
+     * @Template()
+     */
+    public function customJqueryVersionAction(Request $request)
+    {
+        $data = array('values' => ['a', 'b', 'c']);
+
+        $form = $this
+           ->get('form.factory')
+           ->createNamedBuilder('form', 'form', $data)
+           ->add('url', 'text')
+           ->add('values', 'collection', array(
+               'type'         => 'text',
+               'label'        => 'Add, move, remove values and press Submit.',
+               'options'      => array(
+                   'label' => 'Value',
+               ),
+               'allow_add'    => true,
+               'allow_delete' => true,
+               'prototype'    => true,
+               'attr'         => array(
+                   'class' => "form-collection",
+               ),
+           ))
+           ->add('submit', 'submit')
+           ->getForm()
+        ;
+
+        $jquery = '';
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $data = $form->getData();
+            $jquery = $form->getData()['url'];
+        }
+
+        return [
+            'jquery' => $jquery,
+            'form'   => $form->createView(),
+            'data'   => $data,
+        ];
+    }
 }

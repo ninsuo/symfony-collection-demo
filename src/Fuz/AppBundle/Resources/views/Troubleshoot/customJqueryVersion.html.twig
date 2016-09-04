@@ -1,0 +1,41 @@
+{% extends 'FuzAppBundle::layout.html.twig' %}
+
+{% block extra_js %}
+    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+{% endblock %}
+
+{% block title %}Basic usage{% endblock %}
+
+{# Including the given jQuery version #}
+{% block jquery %}{% if jquery %}{{ jquery }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+
+{% block body %}
+
+    <h2>Try this plugin with another jQuery version</h2>
+
+    <p>Enter a jQuery URL in the field below to include it instead of the current version.</p>
+    <p>You can find jQuery core urls at <a href="https://code.jquery.com/jquery/" target="new" rel="noopener noreferrer">https://code.jquery.com/jquery/</a></p>
+
+    {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+    {{ form(form) }}
+
+    <hr/>
+
+    {% for value in data.values %}
+        <p>Value : {{ value }}</p>
+    {% endfor %}
+
+    <hr/>
+
+    <p>Code used:</p>
+    <pre>{{ block('script') | e }}</pre>
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+        $('.form-collection').collection({'allow_duplicate': true});
+    </script>
+
+{% endblock %}

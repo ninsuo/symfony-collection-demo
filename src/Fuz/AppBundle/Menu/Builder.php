@@ -35,6 +35,7 @@ class Builder extends BaseMenu
 
         $this->addSubMenu($menu, 'Troubleshoot');
         $this->addRoute($menu['Troubleshoot'], "Hide form labels", "hideFormLabels");
+        $this->addRoute($menu['Troubleshoot'], "Test with another jQuery version", 'customJqueryVersion');
 
         return $menu;
     }

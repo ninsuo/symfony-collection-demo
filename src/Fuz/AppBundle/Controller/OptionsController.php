@@ -66,7 +66,9 @@ class OptionsController extends BaseController
     public function addButtonAtTheBottomAction(Request $request)
     {
         return array_merge(
-           $this->createContextSample($request, 'enabled'), $this->createContextSample($request, 'disabled')
+           $this->createContextSample($request, 'enabled'),
+           $this->createContextSample($request, 'disabled'),
+           $this->createContextSample($request, 'customlocation')
         );
     }
 

@@ -1,0 +1,101 @@
+{% extends 'FuzAppBundle::layout.html.twig' %}
+
+{% block extra_js %}
+    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+{% endblock %}
+
+{% block title %}Troubleshoot : put the "Add" buttons at a custom location{% endblock %}
+
+{% block body %}
+
+    <h2>{{ block('title') }}</h2>
+
+    <p>
+
+    </p>
+
+    {{
+        github([
+            'Controller/TroubleshootController.php',
+            'Resources/views/Troubleshoot/addButtonsCustomLocation.html.twig',
+        ])
+    }}
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <h3>Collection A</h3>
+
+            {% form_theme collectionA 'FuzAppBundle::jquery.collection.html.twig' %}
+            {{ form(collectionA) }}
+
+            {% for value in collectionAData.values %}
+                <p>Value : {{ value }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4">
+            <h3>Collection B</h3>
+
+            {% form_theme collectionB 'FuzAppBundle::jquery.collection.html.twig' %}
+            {{ form(collectionB) }}
+
+            {% for value in collectionBData.values %}
+                <p>Value : {{ value }}</p>
+            {% endfor %}
+
+       </div>
+
+        <div class="col-md-4">
+            <h3>Collection C</h3>
+
+            {% form_theme collectionC 'FuzAppBundle::jquery.collection.html.twig' %}
+            {{ form(collectionC) }}
+
+            {% for value in collectionCData.values %}
+                <p>Value : {{ value }}</p>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <hr/>
+
+    <div class="text-center">
+        <button data-collection="collectionA" class="collection-action collection-add btn btn-success">Add element to collection A</button>
+        <br/><br/>
+        <button data-collection="collectionB" class="collection-action collection-add btn btn-warning">Add element to collection B</button>
+        <br/><br/>
+        <button data-collection="collectionC" class="collection-action collection-add btn btn-danger">Add element to collection C</button>
+    </div>
+
+    <hr/>
+
+    <p>Code used:</p>
+    <pre>{{ block('script') | e }}</pre>
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+
+        $('.collectionA-collection').collection({
+            allow_up: false,
+            allow_down: false
+        });
+
+        $('.collectionB-collection').collection({
+            allow_up: false,
+            allow_down: false
+        });
+
+        $('.collectionC-collection').collection({
+            allow_up: false,
+            allow_down: false
+        });
+
+    </script>
+
+{% endblock %}

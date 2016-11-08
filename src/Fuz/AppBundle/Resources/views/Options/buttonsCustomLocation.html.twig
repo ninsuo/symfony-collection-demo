@@ -23,7 +23,7 @@
 
     <div class="row">
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <h3>Collection A</h3>
 
             {% form_theme collectionA 'FuzAppBundle::jquery.collection.html.twig' %}
@@ -34,7 +34,7 @@
             {% endfor %}
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <h3>Collection B</h3>
 
             {% form_theme collectionB 'FuzAppBundle::jquery.collection.html.twig' %}
@@ -46,7 +46,7 @@
 
        </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <h3>Collection C</h3>
 
             {% form_theme collectionC 'FuzAppBundle::jquery.collection.html.twig' %}
@@ -58,16 +58,16 @@
 
         </div>
 
-    </div>
+        <div class="col-md-3">
+            <div class="text-center">
+                <button data-collection="collectionA" class="collection-action collection-add btn btn-success">Add element to collection A</button>
+                <br/><br/>
+                <button data-collection="collectionB" class="collection-action collection-add btn btn-warning">Add element to collection B</button>
+                <br/><br/>
+                <button data-collection="collectionC" class="collection-action collection-add btn btn-danger">Add element to collection C</button>
+            </div>
+        </div>
 
-    <hr/>
-
-    <div class="text-center">
-        <button data-collection="collectionA" class="collection-action collection-add btn btn-success">Add element to collection A</button>
-        <br/><br/>
-        <button data-collection="collectionB" class="collection-action collection-add btn btn-warning">Add element to collection B</button>
-        <br/><br/>
-        <button data-collection="collectionC" class="collection-action collection-add btn btn-danger">Add element to collection C</button>
     </div>
 
     <hr/>

@@ -67,8 +67,7 @@ class OptionsController extends BaseController
     {
         return array_merge(
            $this->createContextSample($request, 'enabled'),
-           $this->createContextSample($request, 'disabled'),
-           $this->createContextSample($request, 'customlocation')
+           $this->createContextSample($request, 'disabled')
         );
     }
 

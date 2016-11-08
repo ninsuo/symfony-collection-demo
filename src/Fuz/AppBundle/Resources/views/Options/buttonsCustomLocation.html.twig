@@ -4,7 +4,7 @@
     <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
 {% endblock %}
 
-{% block title %}Troubleshoot : put the "Add" buttons at a custom location{% endblock %}
+{% block title %}JavaScript options : put the "Add" buttons at a custom location{% endblock %}
 
 {% block body %}
 
@@ -16,8 +16,8 @@
 
     {{
         github([
-            'Controller/TroubleshootController.php',
-            'Resources/views/Troubleshoot/addButtonsCustomLocation.html.twig',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/buttonsCustomLocation.html.twig',
         ])
     }}
 
@@ -83,17 +83,20 @@
 
         $('.collectionA-collection').collection({
             allow_up: false,
-            allow_down: false
+            allow_down: false,
+            custom_add_location: true
         });
 
         $('.collectionB-collection').collection({
             allow_up: false,
-            allow_down: false
+            allow_down: false,
+            custom_add_location: true
         });
 
         $('.collectionC-collection').collection({
             allow_up: false,
-            allow_down: false
+            allow_down: false,
+            custom_add_location: true
         });
 
     </script>

@@ -156,4 +156,23 @@ class OptionsController extends BaseController
     {
         return $this->createContextSample($request);
     }
-}
+
+    /**
+     * JavaScript options
+     *
+     * Put buttons to custom locations in your page.
+     *
+     * @Route(
+     *      "/buttons-custom-location",
+     *      name = "buttonsCustomLocation"
+     * )
+     * @Template()
+     */
+    public function buttonsCustomLocationAction(Request $request)
+    {
+        return array_merge(
+           $this->createContextSample($request, 'collectionA'),
+           $this->createContextSample($request, 'collectionB'),
+           $this->createContextSample($request, 'collectionC')
+        );
+    }}

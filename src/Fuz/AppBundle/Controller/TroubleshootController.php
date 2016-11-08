@@ -107,22 +107,4 @@ class TroubleshootController extends BaseController
             'data'   => $data,
         ];
     }
-
-    /**
-     * This example shows how you can locate buttons
-     *
-     * @Route(
-     *      "/add-buttons-custom-location",
-     *      name = "addButtonsCustomLocation"
-     * )
-     * @Template()
-     */
-    public function addButtonsCustomLocationAction(Request $request)
-    {
-        return array_merge(
-           $this->createContextSample($request, 'collectionA'),
-           $this->createContextSample($request, 'collectionB'),
-           $this->createContextSample($request, 'collectionC')
-        );
-    }
 }

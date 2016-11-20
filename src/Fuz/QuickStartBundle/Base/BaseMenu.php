@@ -4,20 +4,29 @@ namespace Fuz\QuickStartBundle\Base;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
-class BaseMenu extends ContainerAware
+abstract class BaseMenu implements ContainerAwareInterface
 {
-    protected function createMenu(FactoryInterface $factory)
+    use ContainerAwareTrait;
+
+    const POSITION_LEFT = 'left';
+    const POSITION_RIGHT = 'right';
+
+    protected function createMenu(FactoryInterface $factory, $position)
     {
         $menu = $factory->createItem('root');
-        $menu->setChildrenAttribute('class', 'nav navbar-nav');
+        if (self::POSITION_LEFT === $position) {
+            $menu->setChildrenAttribute('class', 'nav navbar-nav');
+        } else {
+            $menu->setChildrenAttribute('class', 'nav navbar-nav navbar-right');
+        }
 
         return $menu;
     }
 
-    protected function addRoute(ItemInterface $menu, $name, $route, array $routeParams = array(),
-       array $childParams = array(), $divider = false)
+    protected function addRoute(ItemInterface $menu, $name, $route, array $routeParams = array(), array $childParams = array(), $divider = false)
     {
         $uri = $this->container->get('router')->generate($route, $routeParams);
 
@@ -26,15 +35,13 @@ class BaseMenu extends ContainerAware
 
     protected function addUri(ItemInterface $menu, $name, $uri, array $childParams = array(), $divider = false)
     {
-        $currentUri = $this->container->get('request')->getRequestUri();
+        $currentUri = $this->container->get('request_stack')->getCurrentRequest()->getRequestUri();
 
         $key = sha1($name);
 
-        $item = $menu->addChild($key,
-           array_merge($childParams,
-              array(
-                'uri' => $uri,
-                'label' => $name,
+        $item = $menu->addChild($key, array_merge($childParams, array(
+            'uri' => $uri,
+            'label' => $name,
         )));
 
         if ($divider) {
@@ -81,5 +88,33 @@ class BaseMenu extends ContainerAware
     protected function trans($property, array $parameters = array())
     {
         return $this->container->get('translator')->trans($property, $parameters);
+    }
+
+    public function mainLeftMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $this->createMenu($factory, self::POSITION_LEFT);
+
+        return $menu;
+    }
+
+    public function userLeftMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $this->createMenu($factory, self::POSITION_LEFT);
+
+        return $menu;
+    }
+
+    public function mainRightMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $this->createMenu($factory, self::POSITION_RIGHT);
+
+        return $menu;
+    }
+
+    public function userRightMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $this->createMenu($factory, self::POSITION_RIGHT);
+
+        return $menu;
     }
 }

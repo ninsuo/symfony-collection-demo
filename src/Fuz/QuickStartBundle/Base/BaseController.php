@@ -3,15 +3,15 @@
 namespace Fuz\QuickStartBundle\Base;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\VarDumper\VarDumper;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\VarDumper\VarDumper;
 
-class BaseController extends Controller
+abstract class BaseController extends Controller
 {
     /**
-     * Symfony's var_dump
+     * Symfony's var_dump.
      *
      * @param mixed $var
      */
@@ -22,9 +22,10 @@ class BaseController extends Controller
 
     /**
      * This method comes from Flip's answer on Stackoverflow:
-     * http://stackoverflow.com/a/17428869/731138
+     * http://stackoverflow.com/a/17428869/731138.
      *
-     * @param  Form  $form
+     * @param Form $form
+     *
      * @return array
      */
     protected function getErrorMessages(Form $form)
@@ -76,8 +77,10 @@ class BaseController extends Controller
      *
      * $('.error-container').html('');
      *
-     * @param  Form  $form
+     * @param Form $form
+     *
      * @return array
+     *
      * @see Symfony\Component\Form\Extension\DataCollector\FormDataExtractor::buildId
      * @see Fuz\QuickStartBundle\Resources\public\js\jquery.symfony2.js
      */
@@ -104,8 +107,7 @@ class BaseController extends Controller
         $normalizedErrors = array();
         foreach ($errors as $key => $error) {
             if (is_array($error)) {
-                $normalizedErrors = array_merge($normalizedErrors,
-                   $this->normalizeErrorMessagesAjaxFormat($error, "{$prefix}_{$key}"));
+                $normalizedErrors = array_merge($normalizedErrors, $this->normalizeErrorMessagesAjaxFormat($error, "{$prefix}_{$key}"));
             } else {
                 $normalizedErrors[$prefix][$key] = $error;
             }
@@ -117,7 +119,8 @@ class BaseController extends Controller
     /**
      * This method sends user back to the last url he comes from.
      *
-     * @param  Request          $request
+     * @param Request $request
+     *
      * @return RedirectResponse
      */
     protected function goBack(Request $request)
@@ -160,5 +163,10 @@ class BaseController extends Controller
     public function trans($property, array $parameters = array())
     {
         return $this->container->get('translator')->trans($property, $parameters);
+    }
+
+    public function fwd($controller, array $path = array(), array $query = array())
+    {
+        return $this->forward($controller, $path, $query);
     }
 }

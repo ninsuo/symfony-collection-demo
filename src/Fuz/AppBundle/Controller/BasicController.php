@@ -2,10 +2,10 @@
 
 namespace Fuz\AppBundle\Controller;
 
+use Fuz\AppBundle\Base\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
-use Fuz\AppBundle\Base\BaseController;
 
 class BasicController extends BaseController
 {

@@ -2,20 +2,19 @@
 
 namespace Fuz\QuickStartBundle\EventListener;
 
+use Fuz\QuickStartBundle\Services\Routing;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Routing\Router;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\HttpFoundation\Request;
 
 class LastRouteListener implements EventSubscriberInterface
 {
-    protected $router;
+    protected $routing;
 
-    public function __construct(Router $router)
+    public function __construct(Routing $routing)
     {
-        $this->router = $router;
+        $this->routing = $routing;
     }
 
     public function onKernelRequest(GetResponseEvent $event)
@@ -26,7 +25,7 @@ class LastRouteListener implements EventSubscriberInterface
         }
 
         try {
-            $currentRoute = $this->getCurrentRoute($request);
+            $currentRoute = $this->routing->getCurrentRoute($request);
         } catch (ResourceNotFoundException $ex) {
             return;
         }
@@ -44,25 +43,10 @@ class LastRouteListener implements EventSubscriberInterface
         $session->set('current_route', $currentRoute);
     }
 
-    protected function getCurrentRoute(Request $request)
-    {
-        $routeParams = $this->router->match($request->getPathInfo());
-        $routeName = $routeParams['_route'];
-        if (substr($routeName, 0, 1) === '_') {
-            return;
-        }
-        unset($routeParams['_route']);
-
-        return array(
-                'name' => $routeName,
-                'params' => $routeParams,
-        );
-    }
-
     public static function getSubscribedEvents()
     {
         return array(
-                KernelEvents::REQUEST => array(array('onKernelRequest', 15)),
+            KernelEvents::REQUEST => array(array('onKernelRequest', 15)),
         );
     }
 }

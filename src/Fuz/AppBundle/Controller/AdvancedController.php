@@ -2,16 +2,16 @@
 
 namespace Fuz\AppBundle\Controller;
 
+use Fuz\AppBundle\Base\BaseController;
+use Fuz\AppBundle\Entity\Address;
+use Fuz\AppBundle\Entity\Addresses;
+use Fuz\AppBundle\Entity\Value;
+use Fuz\AppBundle\Form\AddressesType;
+use Fuz\AppBundle\Form\MyArrayType;
+use Fuz\AppBundle\Form\ValueType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
-use Fuz\AppBundle\Base\BaseController;
-use Fuz\AppBundle\Entity\Value;
-use Fuz\AppBundle\Form\ValueType;
-use Fuz\AppBundle\Form\MyArrayType;
-use Fuz\AppBundle\Entity\Addresses;
-use Fuz\AppBundle\Entity\Address;
-use Fuz\AppBundle\Form\AddressesType;
 
 /**
  * @Route("/advanced")

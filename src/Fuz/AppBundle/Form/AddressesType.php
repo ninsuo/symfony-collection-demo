@@ -3,6 +3,8 @@
 namespace Fuz\AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -10,7 +12,7 @@ class AddressesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('addresses', 'collection', array(
+        $builder->add('addresses', CollectionType::class, array(
             'label'        => 'Address',
             'type'         => new AddressType(),
             'allow_add'    => true,
@@ -24,7 +26,7 @@ class AddressesType extends AbstractType
             ),
         ));
 
-        $builder->add('save', 'submit', array(
+        $builder->add('save', SubmitType::class, array(
                 'label' => 'See my addresses',
         ));
     }
@@ -36,7 +38,7 @@ class AddressesType extends AbstractType
         ));
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'AddressesType';
     }

@@ -2,12 +2,12 @@
 
 namespace Fuz\AppBundle\Controller;
 
+use Fuz\AppBundle\Base\BaseController;
+use Fuz\AppBundle\Entity\Task;
+use Fuz\AppBundle\Entity\Tasks;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
-use Fuz\AppBundle\Base\BaseController;
-use Fuz\AppBundle\Entity\Tasks;
-use Fuz\AppBundle\Entity\Task;
 
 /**
  * @Route("/troubleshoot")

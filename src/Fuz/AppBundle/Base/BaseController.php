@@ -2,10 +2,11 @@
 
 namespace Fuz\AppBundle\Base;
 
-use Symfony\Component\HttpFoundation\Request;
-use Fuz\QuickStartBundle\Base\BaseController as QuickStartBase;
 use Fuz\AppBundle\Entity\Value;
 use Fuz\AppBundle\Form\ValueType;
+use Fuz\QuickStartBundle\Base\BaseController as QuickStartBase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type;
 
 class BaseController extends QuickStartBase
 {
@@ -15,21 +16,21 @@ class BaseController extends QuickStartBase
 
         $form = $this
            ->get('form.factory')
-           ->createNamedBuilder($name, 'form', $data)
-           ->add('values', 'collection', array(
-               'type'         => 'text',
-               'label'        => 'Add, move, remove values and press Submit.',
-               'options'      => array(
+           ->createNamedBuilder($name, Type\FormType::class, $data)
+           ->add('values', Type\CollectionType::class, array(
+               'entry_type'    => Type\TextType::class,
+               'label'         => 'Add, move, remove values and press Submit.',
+               'entry_options' => array(
                    'label' => 'Value',
                ),
-               'allow_add'    => true,
-               'allow_delete' => true,
-               'prototype'    => true,
-               'attr'         => array(
+               'allow_add'     => true,
+               'allow_delete'  => true,
+               'prototype'     => true,
+               'attr'          => array(
                    'class' => "{$name}-collection",
                ),
            ))
-           ->add('submit', 'submit')
+           ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
 
@@ -54,9 +55,9 @@ class BaseController extends QuickStartBase
 
         $form = $this
            ->get('form.factory')
-           ->createNamedBuilder($name, 'form', $data)
-           ->add('values', 'collection', array(
-               'type'         => new ValueType(),
+           ->createNamedBuilder($name, Type\FormType::class, $data)
+           ->add('values', Type\CollectionType::class, array(
+               'entry_type'   => ValueType::class,
                'label'        => 'Add, move, remove values and press Submit.',
                'allow_add'    => true,
                'allow_delete' => true,
@@ -66,7 +67,7 @@ class BaseController extends QuickStartBase
                    'class' => "{$name}-collection",
                ),
            ))
-           ->add('submit', 'submit')
+           ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
 

@@ -8,20 +8,23 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
-                new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-                new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-                new Symfony\Bundle\TwigBundle\TwigBundle(),
-                new Symfony\Bundle\MonologBundle\MonologBundle(),
-                new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-                new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-                new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-                new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-                new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
-                new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
-                new JMS\TranslationBundle\JMSTranslationBundle(),
-                new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-                new Fuz\QuickStartBundle\FuzQuickStartBundle(),
-                new Fuz\AppBundle\FuzAppBundle(),
+            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
+            new Symfony\Bundle\TwigBundle\TwigBundle(),
+            new Symfony\Bundle\MonologBundle\MonologBundle(),
+            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            new JMS\TranslationBundle\JMSTranslationBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Fuz\QuickStartBundle\FuzQuickStartBundle(),
+            new EasyCorp\Bundle\EasySecurityBundle\EasySecurityBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Exercise\HTMLPurifierBundle\ExerciseHTMLPurifierBundle(),
+            new Fuz\AppBundle\FuzAppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

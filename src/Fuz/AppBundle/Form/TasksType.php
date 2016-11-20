@@ -3,6 +3,8 @@
 namespace Fuz\AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -10,7 +12,7 @@ class TasksType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('tasks', 'collection', array(
+        $builder->add('tasks', CollectionType::class, array(
             'label'        => 'Tasks',
             'type'         => new TaskType(),
             'allow_add'    => true,
@@ -21,7 +23,7 @@ class TasksType extends AbstractType
             'delete_empty' => true,
         ));
 
-        $builder->add('save', 'submit', array(
+        $builder->add('save', SubmitType::class, array(
                 'label' => 'See my tasks',
         ));
     }

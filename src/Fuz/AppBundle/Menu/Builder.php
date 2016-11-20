@@ -2,14 +2,14 @@
 
 namespace Fuz\AppBundle\Menu;
 
-use Knp\Menu\FactoryInterface;
 use Fuz\QuickStartBundle\Base\BaseMenu;
+use Knp\Menu\FactoryInterface;
 
 class Builder extends BaseMenu
 {
     public function mainMenu(FactoryInterface $factory, array $options)
     {
-        $menu = $this->createMenu($factory);
+        $menu = $this->createMenu($factory, parent::POSITION_LEFT);
         $this->addRoute($menu, 'Home', 'home');
         $this->addRoute($menu, 'Basic usage', 'basic');
 
@@ -43,7 +43,7 @@ class Builder extends BaseMenu
 
     public function userMenu(FactoryInterface $factory, array $options)
     {
-        $menu = $this->createMenu($factory);
+        $menu = $this->createMenu($factory, parent::POSITION_LEFT);
         $this->addRoute($menu, 'quickstart.menu.home', 'home');
 
         return $menu;

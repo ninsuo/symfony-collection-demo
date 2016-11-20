@@ -2,16 +2,17 @@
 
 namespace Fuz\AppBundle\Form;
 
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ValueType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-           ->add('value', 'text',
+           ->add('value', TextType::class,
               array(
                    'required' => true,
                    'label' => 'Value',
@@ -19,14 +20,14 @@ class ValueType extends AbstractType
         ;
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
                 'data_class' => 'Fuz\AppBundle\Entity\Value',
         ));
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'ValueType';
     }

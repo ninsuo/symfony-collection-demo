@@ -38,13 +38,8 @@ class Builder extends BaseMenu
         $this->addRoute($menu['Troubleshoot'], "Hide form labels", "hideFormLabels");
         $this->addRoute($menu['Troubleshoot'], "Test with another jQuery version", 'customJqueryVersion');
 
-        return $menu;
-    }
-
-    public function userMenu(FactoryInterface $factory, array $options)
-    {
-        $menu = $this->createMenu($factory);
-        $this->addRoute($menu, 'quickstart.menu.home', 'home');
+        $this->addSubMenu($menu, 'Symfony 2.x');
+        $this->addUri($menu['Symfony 2.x'], "Switch to Symfony 3.x", "/symfony3");
 
         return $menu;
     }

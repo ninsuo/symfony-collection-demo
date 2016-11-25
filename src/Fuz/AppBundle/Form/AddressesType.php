@@ -14,7 +14,7 @@ class AddressesType extends AbstractType
     {
         $builder->add('addresses', CollectionType::class, array(
             'label'        => 'Address',
-            'type'         => new AddressType(),
+            'entry_type'   => AddressType::class,
             'allow_add'    => true,
             'allow_delete' => true,
             'prototype'    => true,

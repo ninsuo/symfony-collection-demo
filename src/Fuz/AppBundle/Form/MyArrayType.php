@@ -19,7 +19,7 @@ class MyArrayType extends AbstractType
 
         $builder->add('elements', CollectionType::class, array(
             'label'        => 'Add an element...',
-            'type'         => new MyElementType(),
+            'entry_type'   => MyElementType::class,
             'allow_add'    => true,
             'allow_delete' => true,
             'prototype'    => true,

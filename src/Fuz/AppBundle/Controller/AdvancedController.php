@@ -12,6 +12,7 @@ use Fuz\AppBundle\Form\ValueType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type;
 
 /**
  * @Route("/advanced")
@@ -33,21 +34,21 @@ class AdvancedController extends BaseController
 
         $form = $this
            ->createFormBuilder($data)
-           ->add('values', 'collection', array(
-               'type'         => 'text',
-               'label'        => 'Add, move, remove values and press Submit.',
-               'options'      => array(
+           ->add('values', Type\CollectionType::class, array(
+               'entry_type'    => Type\TextType::class,
+               'label'         => 'Add, move, remove values and press Submit.',
+               'entry_options' => array(
                    'label' => 'Value',
                ),
-               'allow_add'    => true,
-               'allow_delete' => true,
-               'prototype'    => true,
-               'required'     => false,
+               'allow_add'     => true,
+               'allow_delete'  => true,
+               'prototype'     => true,
+               'required'      => false,
 //                   'attr' => array (
 //                           'class' => 'my-selector', <--- Not MVC compliant!
 //                   ),
            ))
-           ->add('submit', 'submit')
+           ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
 
@@ -76,8 +77,8 @@ class AdvancedController extends BaseController
 
         $form = $this
            ->createFormBuilder($data)
-           ->add('values', 'collection', array(
-               'type'         => new ValueType(),
+           ->add('values', Type\CollectionType::class, array(
+               'entry_type'   => ValueType::class,
                'label'        => 'Add, move, remove values and press Submit.',
                'allow_add'    => true,
                'allow_delete' => true,
@@ -87,7 +88,7 @@ class AdvancedController extends BaseController
                    'class' => 'collection',
                ),
            ))
-           ->add('submit', 'submit')
+           ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
 
@@ -137,14 +138,14 @@ class AdvancedController extends BaseController
 
         $form = $this
            ->get('form.factory')
-           ->createNamedBuilder('form', 'form', $data)
-           ->add('collections', 'collection', array(
-               'type'           => 'collection',
+           ->createNamedBuilder('form', Type\FormType::class, $data)
+           ->add('collections', Type\CollectionType::class, array(
+               'entry_type'     => Type\CollectionType::class,
                'label'          => 'Add, move, remove collections',
-               'options'        => array(
-                   'type'           => new ValueType(),
+               'entry_options'  => array(
+                   'entry_type'     => ValueType::class,
                    'label'          => 'Add, move, remove values',
-                   'options'        => array(
+                   'entry_options'  => array(
                        'label' => 'Value',
                    ),
                    'allow_add'      => true,
@@ -163,7 +164,7 @@ class AdvancedController extends BaseController
                    'class' => "parent-collection",
                ),
            ))
-           ->add('submit', 'submit')
+           ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
 
@@ -205,7 +206,7 @@ class AdvancedController extends BaseController
             $data = $repo->create($name);
         }
 
-        $form = $this->createForm(new MyArrayType(), $data);
+        $form = $this->createForm(MyArrayType::class, $data);
         $form->handleRequest($request);
 
         $form->get('save')->isClicked() && $form->isValid() && $repo->save($data);
@@ -259,7 +260,7 @@ class AdvancedController extends BaseController
         $addresses = new Addresses();
         $addresses->getAddresses()->add($address);
 
-        $form = $this->createForm(new AddressesType(), $addresses);
+        $form = $this->createForm(AddressesType::class, $addresses);
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
         }

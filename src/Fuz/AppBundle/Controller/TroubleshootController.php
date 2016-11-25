@@ -8,6 +8,7 @@ use Fuz\AppBundle\Entity\Tasks;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type;
 
 /**
  * @Route("/troubleshoot")
@@ -75,22 +76,22 @@ class TroubleshootController extends BaseController
 
         $form = $this
            ->get('form.factory')
-           ->createNamedBuilder('form', 'form', $data)
-           ->add('url', 'text')
-           ->add('values', 'collection', array(
-               'type'         => 'text',
-               'label'        => 'Add, move, remove values and press Submit.',
-               'options'      => array(
+           ->createNamedBuilder('form', Type\FormType::class, $data)
+           ->add('url', Type\TextType::class)
+           ->add('values', Type\CollectionType::class, array(
+               'entry_type'    => Type\TextType::class,
+               'entry_options' => array(
                    'label' => 'Value',
                ),
-               'allow_add'    => true,
-               'allow_delete' => true,
-               'prototype'    => true,
-               'attr'         => array(
+               'label'         => 'Add, move, remove values and press Submit.',
+               'allow_add'     => true,
+               'allow_delete'  => true,
+               'prototype'     => true,
+               'attr'          => array(
                    'class' => "form-collection",
                ),
            ))
-           ->add('submit', 'submit')
+           ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
 

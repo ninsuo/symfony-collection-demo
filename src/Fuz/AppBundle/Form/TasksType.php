@@ -14,7 +14,7 @@ class TasksType extends AbstractType
     {
         $builder->add('tasks', CollectionType::class, array(
             'label'        => 'Tasks',
-            'type'         => new TaskType(),
+            'entry_type'   => TaskType::class,
             'allow_add'    => true,
             'allow_delete' => true,
             'prototype'    => true,

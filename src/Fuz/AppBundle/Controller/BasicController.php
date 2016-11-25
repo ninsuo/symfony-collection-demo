@@ -6,6 +6,7 @@ use Fuz\AppBundle\Base\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type;
 
 class BasicController extends BaseController
 {
@@ -21,22 +22,21 @@ class BasicController extends BaseController
 
         $form = $this
            ->createFormBuilder($data)
-           ->add('values', 'collection',
-              array(
-                   'type' => 'text',
-                   'label' => 'Add, move, remove values and press Submit.',
-                   'options' => array(
-                           'label' => 'Value',
-                   ),
-                   'allow_add' => true,
-                   'allow_delete' => true,
-                   'prototype' => true,
-                   'required' => false,
-                   'attr' => array(
-                           'class' => 'my-selector',
-                   ),
+           ->add('values', Type\CollectionType::class, array(
+               'entry_type'    => Type\TextType::class,
+               'entry_options' => array(
+                   'label' => 'Value',
+               ),
+               'label'         => 'Add, move, remove values and press Submit.',
+               'allow_add'     => true,
+               'allow_delete'  => true,
+               'prototype'     => true,
+               'required'      => false,
+               'attr'          => array(
+                   'class' => 'my-selector',
+               ),
            ))
-           ->add('submit', 'submit')
+           ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
 

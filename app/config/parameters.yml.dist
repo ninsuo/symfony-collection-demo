@@ -1,5 +1,6 @@
 # This file is auto-generated during the composer install
 parameters:
+    secret: ~
     locale: en
     supported_locales: ~
     database_driver: pdo_mysql

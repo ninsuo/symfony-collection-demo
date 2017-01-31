@@ -3,7 +3,6 @@
    "description": "Symfony collection demo website",
    "license": "MIT",
    "type": "project",
-   "description": "An empty Symfony project that provides lots of ready-to-use tools for quick & not-so-dirty developments",
    "autoload": {
         "psr-4": {
             "": "src/"

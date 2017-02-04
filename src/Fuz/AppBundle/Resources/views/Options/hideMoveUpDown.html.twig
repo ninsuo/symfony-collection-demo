@@ -45,7 +45,8 @@
     <script type="text/javascript">
 
         $('.form-collection').collection({
-            hide_useless_buttons: false
+            hide_useless_buttons: false,
+            max: 5
         });
 
         $('#test-it').on('click', function() {
@@ -54,7 +55,8 @@
             $('.collection-up, .collection-down').css('display', '');
 
             $('.form-collection').collection({
-                hide_useless_buttons: $('#test-it').is(':checked')
+                hide_useless_buttons: $('#test-it').is(':checked'),
+                max: 5
             });
         });
 

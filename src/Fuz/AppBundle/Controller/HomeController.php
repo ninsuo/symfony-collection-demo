@@ -18,7 +18,8 @@ class HomeController extends BaseController
     public function homeAction(Request $request)
     {
         return array_merge(
-           $this->createContextSample($request, 'noPlugin'), $this->createAdvancedContextSample($request, 'withPlugin')
+           $this->createContextSample($request, 'noPlugin'),
+           $this->createAdvancedContextSample($request, 'withPlugin')
         );
     }
 }

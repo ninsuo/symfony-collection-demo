@@ -28,13 +28,6 @@
 
     <p>Drag & drop do not work if <code>allow_move_up</code> or <code>allow_move_down</code> are disabled.</p>
 
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/dragAndDrop.html.twig',
-        ])
-    }}
-    
     <div class="row">
 
         {# demo 1: drag & drop disabled #}
@@ -158,6 +151,13 @@
 
     </div>
 
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/dragAndDrop.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

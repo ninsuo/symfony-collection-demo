@@ -14,13 +14,6 @@
 
     <p>Note that you can still do more advanced customization (of button's position) using your form theme.</p>
 
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/customButtons.html.twig',
-        ])
-    }}
-
     {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
     {{ form(form) }}
 
@@ -34,6 +27,14 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/customButtons.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

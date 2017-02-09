@@ -21,19 +21,6 @@
         in all demos, but persisted.
     </p>
 
-    {{
-        github([
-            'Controller/AdvancedController.php',
-            'Resources/views/Advanced/usageWithDoctrine.html.twig',
-            'Resources/views/Advanced/doctrine-theme.html.twig',
-            'Entity/MyArray.php',
-            'Form/MyArrayType.php',
-            'Entity/MyElement.php',
-            'Form/MyElementType.php',
-            'Repository/MyArrayRepository.php',
-        ])
-    }}
-
     <div class="text-center">
         <input type="button" id="new" class="btn btn-default" value="Create new array"/>
     </div>
@@ -68,6 +55,20 @@
             </tbody>
         </table>
     {% endif %}
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/AdvancedController.php',
+            'Resources/views/Advanced/usageWithDoctrine.html.twig',
+            'Resources/views/Advanced/doctrine-theme.html.twig',
+            'Entity/MyArray.php',
+            'Form/MyArrayType.php',
+            'Entity/MyElement.php',
+            'Form/MyElementType.php',
+            'Repository/MyArrayRepository.php',
+        ])
+    }}
 
 {% endblock %}
 

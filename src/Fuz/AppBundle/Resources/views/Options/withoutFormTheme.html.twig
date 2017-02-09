@@ -42,13 +42,6 @@
         </li>
     </ul>
 
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/withoutFormTheme.html.twig',
-        ])
-    }}
-
     {{ form(form) }}
 
     <hr/>
@@ -61,6 +54,14 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/withoutFormTheme.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

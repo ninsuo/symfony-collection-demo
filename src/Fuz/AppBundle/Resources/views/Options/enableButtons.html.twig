@@ -14,14 +14,6 @@
 
     <p><b>Warning</b>: if you're using the plugin's form theme, <code>allow_add</code> and <code>allow_remove</code> are taken from your form type configuration.</p>
 
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/enableButtons.html.twig',
-            'Resources/views/Options/options-theme.html.twig',
-        ])
-    }}
-
     <form class="form-inline">
       <strong>Enable or disable collection's actions : </strong>
       <div class="checkbox">
@@ -83,6 +75,15 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/enableButtons.html.twig',
+            'Resources/views/Options/options-theme.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

@@ -14,14 +14,6 @@
 
     <p>The example below shows you a collection having from <strong>2</strong> to <strong>5</strong> elements.</p>
 
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/numberCollectionElements.html.twig',
-            'Resources/views/Options/options-theme.html.twig',
-        ])
-    }}
-
     <div class="row">
 
        <div class="col-md-6">
@@ -67,6 +59,15 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/numberCollectionElements.html.twig',
+            'Resources/views/Options/options-theme.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

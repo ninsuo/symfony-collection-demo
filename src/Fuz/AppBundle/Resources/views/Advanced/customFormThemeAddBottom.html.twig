@@ -30,14 +30,6 @@
         it at the bottom of the form.
     </p>
 
-    {{
-        github([
-            'Controller/AdvancedController.php',
-            'Resources/views/Advanced/advanced-theme.html.twig',
-            'Resources/views/Advanced/customFormThemeAddBottom.html.twig',
-        ])
-    }}
-
     {%
         form_theme form
             'FuzAppBundle::jquery.collection.html.twig'
@@ -49,6 +41,15 @@
     {% for value in data.values %}
         <p>Value : {{ value }}</p>
     {% endfor %}
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/AdvancedController.php',
+            'Resources/views/Advanced/advanced-theme.html.twig',
+            'Resources/views/Advanced/customFormThemeAddBottom.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

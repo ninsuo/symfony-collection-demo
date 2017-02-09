@@ -19,10 +19,10 @@
             <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
             <link href="{{ asset('bundles/fuzquickstart/bootstrap-submenu/css/bootstrap-submenu.min.css') }}" rel="stylesheet" media="screen">
             <link href="{{ asset('bundles/fuzquickstart/jquery-ui-1.11.2/jquery-ui.min.css') }}" rel="stylesheet" media="screen">
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
             {% block extra_css %}{% endblock %}
             <link rel="stylesheet" href="{{ asset('bundles/fuzquickstart/css/custom.css') }}">
         {% endblock %}
-
     </head>
 
     <body>
@@ -78,12 +78,22 @@
             <script src="{{ asset('bundles/fuzquickstart/jquery-ui-1.11.2/jquery-ui.min.js') }}"></script>
             <script src="{{ asset('bundles/fuzquickstart/js/jquery.domajax.js') }}"></script>
             <script src="{{ asset('bundles/fuzquickstart/js/jquery.symfony2.js') }}"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
             {% block extra_js %}{% endblock %}
         {% endblock %}
 
         <script type="text/javascript">
            $('.dropdown-submenu > a').submenupicker();
         </script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript">
+            $(function() {
+                if ($("#tabs").length) {
+                    $("#tabs").tab();
+                }
+            });
+        </script>
+
         {% block script %}{% endblock %}
 
     </body>

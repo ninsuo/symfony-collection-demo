@@ -6,6 +6,10 @@ use Fuz\AppBundle\Base\BaseController;
 use Fuz\AppBundle\Entity\Address;
 use Fuz\AppBundle\Entity\Addresses;
 use Fuz\AppBundle\Entity\Value;
+use Fuz\AppBundle\Entity\Fancy;
+use Fuz\AppBundle\Entity\FancyCollection;
+use Fuz\AppBundle\Form\FancyTypeFancyType;
+use Fuz\AppBundle\Form\FancyCollectionType;
 use Fuz\AppBundle\Form\AddressesType;
 use Fuz\AppBundle\Form\MyArrayType;
 use Fuz\AppBundle\Form\ValueType;
@@ -268,6 +272,37 @@ class AdvancedController extends BaseController
         return array(
             'form' => $form->createView(),
             "data" => $addresses,
+        );
+    }
+
+    /**
+     * Another example of form theme
+     *
+     * @Route(
+     *      "/fancyFormTheme",
+     *      name = "fancyFormTheme"
+     * )
+     * @Template()
+     */
+    public function fancyFormThemeAction(Request $request)
+    {
+        $fancyCollection = new FancyCollection();
+
+        for ($i = 0; $i < 3; $i++) {
+            $fancy = new Fancy();
+            $fancyCollection->getFancyCollection()->add($fancy);
+        }
+
+        $form = $this->createForm(FancyCollectionType::class, $fancyCollection);
+
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $data = $form->getData();
+        }
+
+        return array(
+            'form' => $form->createView(),
+            'data' => $fancyCollection,
         );
     }
 }

@@ -1,0 +1,31 @@
+
+{% block FancyType_row %}
+
+    <div class="row">
+        <div class="col-md-2">
+            <div class="text-center">{{ form_label(form.a) }}</div>
+            <div>{{ form_widget(form.a) }}</div>
+        </div>
+        <div class="col-md-2">
+            <div class="text-center">{{ form_label(form.b) }}</div>
+            <div>{{ form_widget(form.b) }}</div>
+        </div>
+        <div class="col-md-2">
+            <div class="text-center">{{ form_label(form.c) }}</div>
+            <div>{{ form_widget(form.c) }}</div>
+        </div>
+
+        <div class="col-md-2">
+            <a href="#" class="collection-up btn btn-default" title="Move element up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+            <a href="#" class="collection-down btn btn-default" title="Move element down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+        </div>
+        <div class="col-md-2">
+            <a href="#" class="collection-remove btn btn-default" title="Delete element"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="#" class="collection-add btn btn-default" title="Add element"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        </div>
+        <div class="col-md-2">
+            <a href="#" class="collection-duplicate btn btn-default" title="Duplicate element"><span class="glyphicon glyphicon-th-large"></span></a>
+        </div>
+    </div>
+
+{% endblock %}

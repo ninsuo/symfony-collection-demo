@@ -4,25 +4,25 @@
     <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
 {% endblock %}
 
-{% block title %}Advanced usage: custom theme and several fields{% endblock %}
+{% block title %}Advanced usage: custom theme with several aligned fields{% endblock %}
 
 {% block body %}
 
     <h2>{{ block('title') }}</h2>
 
     <p>
-        An example that shows how works theming on a form with more than one field.
+        An other example of theming a collection
     </p>
 
     {{
         github([
             'Controller/AdvancedController.php',
-            'Resources/views/Advanced/addresses-theme.html.twig',
-            'Resources/views/Advanced/formHavingSeveralFields.html.twig',
-            'Entity/Addresses.php',
-            'Entity/Address.php',
-            'Form/AddressesType.php',
-            'Form/AddressType.php',
+            'Resources/views/Advanced/fancy-theme.html.twig',
+            'Resources/views/Advanced/fancyFormTheme.html.twig',
+            'Entity/FancyCollection.php',
+            'Entity/Fancy.php',
+            'Form/FancyCollectionType.php',
+            'Form/FancyType.php',
         ])
     }}
 
@@ -30,14 +30,14 @@
         {%
             form_theme form
                 'FuzAppBundle::jquery.collection.html.twig'
-                'FuzAppBundle:Advanced:addresses-theme.html.twig'
+                'FuzAppBundle:Advanced:fancy-theme.html.twig'
         %}
         {{ form(form) }}
     </div>
 
-    {% for address in data.addresses %}
+    {% for row in data.fancyCollection %}
         <p>
-            {{ address.name }} at {{ address.company }}, {{ address.street }}, {{ address.postalcode }} {{ address.city }}, {{ address.country }}
+            a = {{ row.a }}, b = {{ row.b }}, c = {{ row.c }}
         </p>
     {% endfor %}
 
@@ -49,7 +49,8 @@
         $('.collection').collection({
             'drag_drop_options': {
                 'placeholder': null
-            }
+            },
+            allow_duplicate: true,
         });
     </script>
 

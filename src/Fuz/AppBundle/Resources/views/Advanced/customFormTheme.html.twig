@@ -25,14 +25,6 @@
         elements. If you feel that the <code>&gt; div</code> selector should be customizable in a plugin option, please open an issue on Github.
     </p>
 
-    {{
-        github([
-            'Controller/AdvancedController.php',
-            'Resources/views/Advanced/customFormTheme.html.twig',
-            'Resources/views/Advanced/advanced-theme.html.twig',
-        ])
-    }}
-
     {%
         form_theme form
             'FuzAppBundle::jquery.collection.html.twig'
@@ -44,6 +36,15 @@
     {% for value in data.values %}
         <p>Value : {{ value }}</p>
     {% endfor %}
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/AdvancedController.php',
+            'Resources/views/Advanced/customFormTheme.html.twig',
+            'Resources/views/Advanced/advanced-theme.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

@@ -14,18 +14,6 @@
         An example that shows how works theming on a form with more than one field.
     </p>
 
-    {{
-        github([
-            'Controller/AdvancedController.php',
-            'Resources/views/Advanced/addresses-theme.html.twig',
-            'Resources/views/Advanced/formHavingSeveralFields.html.twig',
-            'Entity/Addresses.php',
-            'Entity/Address.php',
-            'Form/AddressesType.php',
-            'Form/AddressType.php',
-        ])
-    }}
-
     <div class="row">
         {%
             form_theme form
@@ -40,6 +28,19 @@
             {{ address.name }} at {{ address.company }}, {{ address.street }}, {{ address.postalcode }} {{ address.city }}, {{ address.country }}
         </p>
     {% endfor %}
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/AdvancedController.php',
+            'Resources/views/Advanced/addresses-theme.html.twig',
+            'Resources/views/Advanced/formHavingSeveralFields.html.twig',
+            'Entity/Addresses.php',
+            'Entity/Address.php',
+            'Form/AddressesType.php',
+            'Form/AddressType.php',
+        ])
+    }}
 
 {% endblock %}
 

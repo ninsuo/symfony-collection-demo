@@ -19,17 +19,6 @@
         </p>
     {% endverbatim %}
 
-    {{
-        github([
-            'Controller/TroubleshootController.php',
-            'Entity/Task.php',
-            'Form/TaskType.php',
-            'Entity/Tasks.php',
-            'Form/TasksType.php',
-            'Resources/views/Troubleshoot/hideFormLabels.html.twig',
-        ])
-    }}
-
     {# Demo A : default behavior #}
 
     {% form_theme formA 'FuzAppBundle::jquery.collection.html.twig' %}
@@ -94,6 +83,17 @@
     {% for task in dataC.tasks %}
         <p>Should <strong>{{ task.task }}</strong> before <strong>{{ task.dueDate|date }}</strong></p>
     {% endfor %}
+
+    {{
+        tabs([
+            'Controller/TroubleshootController.php',
+            'Entity/Task.php',
+            'Form/TaskType.php',
+            'Entity/Tasks.php',
+            'Form/TasksType.php',
+            'Resources/views/Troubleshoot/hideFormLabels.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

@@ -15,18 +15,6 @@
         disposed above each widget.
     </p>
 
-    {{
-        github([
-            'Controller/AdvancedController.php',
-            'Resources/views/Advanced/fancy-theme.html.twig',
-            'Resources/views/Advanced/fancyFormTheme.html.twig',
-            'Entity/FancyCollection.php',
-            'Entity/Fancy.php',
-            'Form/FancyCollectionType.php',
-            'Form/FancyType.php',
-        ])
-    }}
-
     <div class="row">
         {%
             form_theme form
@@ -41,6 +29,19 @@
             a = {{ row.a }}, b = {{ row.b }}, c = {{ row.c }}
         </p>
     {% endfor %}
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/AdvancedController.php',
+            'Resources/views/Advanced/fancy-theme.html.twig',
+            'Resources/views/Advanced/fancyFormTheme.html.twig',
+            'Entity/FancyCollection.php',
+            'Entity/Fancy.php',
+            'Form/FancyCollectionType.php',
+            'Form/FancyType.php',
+        ])
+    }}
 
 {% endblock %}
 

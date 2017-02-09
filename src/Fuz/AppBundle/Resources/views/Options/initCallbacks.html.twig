@@ -21,13 +21,6 @@
 
     <p>Your callback doesn't require to return something.</p>
 
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/initCallbacks.html.twig',
-        ])
-    }}
-
     <div class="row">
 
         <div class="col-md-12">
@@ -50,6 +43,14 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/initCallbacks.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

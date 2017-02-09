@@ -10,17 +10,6 @@
 
     <h2>{{ block('title') }}</h2>
 
-    <p>
-
-    </p>
-
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/buttonsCustomLocation.html.twig',
-        ])
-    }}
-
     <div class="row">
 
         <div class="col-md-3">
@@ -74,6 +63,14 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/buttonsCustomLocation.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

@@ -32,13 +32,6 @@
 
     <p>Your callback should return <code>true</code> or <code>undefined</code> to apply the action else it is cancelled or rollbacked.</p>
 
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/eventCallbacks.html.twig',
-        ])
-    }}
-
     <div class="row">
 
         <div class="col-md-6">
@@ -70,6 +63,14 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/eventCallbacks.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

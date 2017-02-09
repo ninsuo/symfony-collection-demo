@@ -14,13 +14,6 @@
 
     <p>Use <code>add_at_the_end</code> option set to <code>true</code> if you want to have only one <code>add</code> button, located below the collection.</p>
 
-    {{
-        github([
-            'Controller/OptionsController.php',
-            'Resources/views/Options/addButtonAtTheBottom.html.twig',
-        ])
-    }}
-
     <div class="row">
 
         {# Option add_at_the_end disabled #}
@@ -64,6 +57,14 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/addButtonAtTheBottom.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

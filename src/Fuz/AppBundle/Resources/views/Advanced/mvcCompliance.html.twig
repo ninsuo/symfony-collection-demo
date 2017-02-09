@@ -20,13 +20,6 @@
         <code>data-collection="{% verbatim %}{{ form.collectionField.vars.id }}{% endverbatim %}"</code>.
     </p>
 
-    {{
-        github([
-            'Controller/AdvancedController.php',
-            'Resources/views/Advanced/mvcCompliance.html.twig',
-        ])
-    }}
-
     {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
     {{ form(form) }}
 
@@ -40,6 +33,14 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/AdvancedController.php',
+            'Resources/views/Advanced/mvcCompliance.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

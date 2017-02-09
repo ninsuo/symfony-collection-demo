@@ -12,13 +12,6 @@
 
     <p>This is a collection of simple text fields using the plugin with all default options.</p>
 
-    {{
-        github([
-            'Controller/BasicController.php',
-            'Resources/views/Basic/basic.html.twig',
-        ])
-    }}
-
     {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
     {{ form(form) }}
 
@@ -32,6 +25,14 @@
 
     <p>Code used:</p>
     <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/BasicController.php',
+            'Resources/views/Basic/basic.html.twig',
+        ])
+    }}
 
 {% endblock %}
 

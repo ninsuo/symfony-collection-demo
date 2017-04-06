@@ -57,6 +57,15 @@
             {% endblock %}
 
            <div id="body">
+
+              {{
+                    macros.box(
+                        'yellow',
+                        'This website version is not maintained anymore',
+                        'Up to date documentation is available in Symfony 3.x website (see the dropdown menu above).'
+                    )
+              }}
+
               {% block flash %}{{ include('BraincraftedBootstrapBundle::flash.html.twig', {'close': true}) }}{% endblock %}
               {% block body %}{% endblock %}
            </div>

@@ -1,0 +1,64 @@
+{% extends 'FuzAppBundle::layout.html.twig' %}
+
+{% block extra_js %}
+    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+{% endblock %}
+
+{% block title %}JavaScript options : fadeIn / fadeOut animations{% endblock %}
+
+{% block body %}
+
+    <h2>{{ block('title') }}</h2>
+
+    <p>Use <code>fade_in</code> and <code>fade_out</code> options to disable fade animation when adding / removing elements of the collection.</p>
+
+    <p>Both options are enabled (<code>true</code>) by default.</p>
+
+    <p>Test it live:</p>
+
+    <p>- Fade In when adding an element to the collection: <input type="checkbox" class="fade-demo" id="fade-in" checked /></p>
+
+    <p>- Fade Out when removing an element from the collection: <input type="checkbox" class="fade-demo" id="fade-out" checked /></p>
+
+    {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+    {{ form(form) }}
+
+    <hr/>
+
+    {% for value in formData.values %}
+        <p>Value : {{ value }}</p>
+    {% endfor %}
+
+    <hr/>
+
+    <p>Code used:</p>
+    <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Base/BaseController.php',
+            'Controller/OptionsController.php',
+            'Resources/views/Options/fadeInFadeOut.html.twig',
+        ])
+    }}
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+
+        $('.form-collection').collection({
+            // by default, options are enabled
+        });
+
+        $('.fade-demo').on('click', function() {
+            $('.form-collection').collection({
+                fade_in: $('#fade-in').is(':checked'),
+                fade_out: $('#fade-out').is(':checked')
+            });
+        });
+
+    </script>
+
+{% endblock %}

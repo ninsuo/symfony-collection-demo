@@ -25,6 +25,7 @@ class Builder extends BaseMenu
         $this->addRoute($menu['JavaScript Options'], "Hide Up and Down buttons on useless elements", 'hideMoveUpDown');
         $this->addRoute($menu['JavaScript Options'], "Drag & Drop", 'dragAndDrop');
         $this->addRoute($menu['JavaScript Options'], "Add button at a custom location", 'buttonsCustomLocation');
+        $this->addRoute($menu['JavaScript Options'], "FadeIn & FadeOut on element actions", 'fadeInFadeOut');
 
         $this->addSubMenu($menu, 'Advanced usage');
         $this->addRoute($menu['Advanced usage'], "A better MVC Compliance", "mvcCompliance");

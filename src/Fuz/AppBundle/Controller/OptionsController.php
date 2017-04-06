@@ -174,4 +174,20 @@ class OptionsController extends BaseController
            $this->createContextSample($request, 'collectionB'),
            $this->createContextSample($request, 'collectionC')
         );
-    }}
+    }
+
+    /**
+     * JavaScript options
+     *
+     * Enable / disable fade animation when adding / removing
+     * collection elements.
+     *
+     * @Route("/fadeInFadeOut", name="fadeInFadeOut")
+     * @Template()
+     */
+    public function fadeInFadeOutAction(Request $request)
+    {
+        return $this->createContextSample($request);
+    }
+}
+

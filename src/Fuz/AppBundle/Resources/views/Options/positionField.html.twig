@@ -1,0 +1,71 @@
+{% extends 'FuzAppBundle::layout.html.twig' %}
+
+{% block extra_js %}
+    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+{% endblock %}
+
+{% block title %}JavaScript options : store elements position in a field{% endblock %}
+
+{% block body %}
+
+    <h2>{{ block('title') }}</h2>
+
+    <p>Use this option when you have a position field in each elements of your collection.</p>
+
+    <p>This is very useful when each element of your collection has its own database relationships.</p>
+
+    {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+    {{ form(form) }}
+
+    <hr/>
+
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Position</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            {% for action in data.actions %}
+                <tr>
+                    <td>{{ action.id }}</td>
+                    <td>{{ action.position }}</td>
+                    <td>{{ action.name }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No actions submitted</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr/>
+
+    <p>Code used:</p>
+    <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Controller/OptionsController.php',
+            'Entity/Actions.php',
+            'Entity/Action.php',
+            'Form/ActionsType.php',
+            'Form/ActionType.php',
+            'Resources/views/Options/positionField.html.twig',
+        ])
+    }}
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+
+        $('.form-collection').collection({
+            position_field_selector: '.my-position'
+        });
+
+    </script>
+
+{% endblock %}

@@ -14,7 +14,14 @@
 
     <p>This is very useful when each element of your collection has its own database relationships.</p>
 
-    {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+    <hr/>
+
+    {%
+        form_theme form
+            'FuzAppBundle::jquery.collection.html.twig'
+            'FuzAppBundle:Options/positionField:formTheme.html.twig'
+    %}
+
     {{ form(form) }}
 
     <hr/>
@@ -47,12 +54,13 @@
 
     {{
         tabs([
-            'Controller/OptionsController.php',
-            'Entity/Actions.php',
-            'Entity/Action.php',
-            'Form/ActionsType.php',
-            'Form/ActionType.php',
-            'Resources/views/Options/positionField.html.twig',
+            'Controller/Options/PositionFieldController.php',
+            'Entity/PositionField/Actions.php',
+            'Entity/PositionField/Action.php',
+            'Form/PositionField/ActionsType.php',
+            'Form/PositionField/ActionType.php',
+            'Resources/views/Options/positionField/positionField.html.twig',
+            'Resources/views/Options/positionField/formTheme.html.twig',
         ])
     }}
 
@@ -62,7 +70,7 @@
 
     <script type="text/javascript">
 
-        $('.form-collection').collection({
+        $('.actions-collection').collection({
             position_field_selector: '.my-position'
         });
 

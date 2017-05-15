@@ -54,3 +54,13 @@
     padding-bottom:3px;
     height:18px;
 }
+
+.horizontal-form .row {
+    display: table;
+}
+
+.horizontal-form [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: bottom;
+}

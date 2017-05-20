@@ -26,6 +26,7 @@ class ActionType extends AbstractType
         $builder->add('position', TextType::class, [
             'attr' => [
                 'readonly' => true,
+                'class' => 'my-position', // selector is the one used on the js side
             ],
         ]);
     }

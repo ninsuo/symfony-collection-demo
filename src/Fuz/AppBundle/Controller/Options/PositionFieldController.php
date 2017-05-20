@@ -42,6 +42,9 @@ class PositionFieldController extends BaseController
                 case 3:
                     $action->setName("take a shower");
                     break;
+                case 4:
+                    $action->setName("yawn loudly");
+                    break;
             }
 
             $action->setPosition($i);

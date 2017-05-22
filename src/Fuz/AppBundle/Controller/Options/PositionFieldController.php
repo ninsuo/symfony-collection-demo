@@ -28,21 +28,21 @@ class PositionFieldController extends BaseController
     public function positionFieldAction(Request $request)
     {
         $actions = new Actions();
-        for ($i = 1; $i <= 4; $i++) {
+        for ($i = 0; $i <= 3; $i++) {
             $action = new Action();
             $action->setId(42 + $i); // just to distinguish id and position
 
             switch ($i) {
-                case 1:
+                case 0:
                     $action->setName("walk the dog");
                     break;
-                case 2:
+                case 1:
                     $action->setName("eat breakfast");
                     break;
-                case 3:
+                case 2:
                     $action->setName("take a shower");
                     break;
-                case 4:
+                case 3:
                     $action->setName("yawn loudly");
                     break;
             }

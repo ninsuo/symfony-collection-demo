@@ -190,4 +190,3 @@ class OptionsController extends BaseController
         return $this->createContextSample($request);
     }
 }
-

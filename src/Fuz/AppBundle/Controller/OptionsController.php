@@ -15,19 +15,6 @@ class OptionsController extends BaseController
     /**
      * JavaScript options
      *
-     * Customized buttons
-     *
-     * @Route("/customButtons", name="customButtons")
-     * @Template()
-     */
-    public function customButtonsAction(Request $request)
-    {
-        return $this->createContextSample($request);
-    }
-
-    /**
-     * JavaScript options
-     *
      * Disable buttons you don't want
      *
      * @Route("/enableButtons", name="enableButtons")

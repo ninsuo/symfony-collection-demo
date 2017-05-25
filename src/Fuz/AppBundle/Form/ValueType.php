@@ -13,18 +13,18 @@ class ValueType extends AbstractType
     {
         $builder
            ->add('value', TextType::class,
-              array(
+              [
                    'required' => true,
-                   'label' => 'Value',
-           ))
+                   'label'    => 'Value',
+           ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
                 'data_class' => 'Fuz\AppBundle\Entity\Value',
-        ));
+        ]);
     }
 
     public function getBlockPrefix()

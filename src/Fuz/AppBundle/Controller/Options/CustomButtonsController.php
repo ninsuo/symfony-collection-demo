@@ -5,8 +5,8 @@ namespace Fuz\AppBundle\Controller\Options;
 use Fuz\AppBundle\Base\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/options")
@@ -24,25 +24,25 @@ class CustomButtonsController extends BaseController
     public function customButtonsAction(Request $request)
     {
         $data = [
-            'values' => ["a", "b", "c"],
+            'values' => ['a', 'b', 'c'],
         ];
 
         $form = $this
             ->get('form.factory')
             ->createNamedBuilder('form', Type\FormType::class, $data)
-            ->add('values', Type\CollectionType::class, array(
-                'entry_type' => Type\TextType::class,
-                'label' => 'Add, move, remove values and press Submit.',
-                'entry_options' => array(
+            ->add('values', Type\CollectionType::class, [
+                'entry_type'    => Type\TextType::class,
+                'label'         => 'Add, move, remove values and press Submit.',
+                'entry_options' => [
                     'label' => 'Value',
-                ),
-                'allow_add' => true,
+                ],
+                'allow_add'    => true,
                 'allow_delete' => true,
-                'prototype' => true,
-                'attr' => array(
-                    'class' => "form-collection",
-                ),
-            ))
+                'prototype'    => true,
+                'attr'         => [
+                    'class' => 'form-collection',
+                ],
+            ])
             ->add('submit', Type\SubmitType::class)
             ->getForm()
         ;
@@ -53,7 +53,7 @@ class CustomButtonsController extends BaseController
         }
 
         return [
-            'form' => $form->createView(),
+            'form'     => $form->createView(),
             'formData' => $data,
         ];
     }

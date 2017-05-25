@@ -20,9 +20,9 @@ class AddressType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Fuz\AppBundle\Entity\Address',
-        ));
+        ]);
     }
 
     public function getBlockPrefix()

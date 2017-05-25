@@ -13,11 +13,11 @@ class MyArrayType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class, array(
+        $builder->add('name', TextType::class, [
                 'label' => 'Array name:',
-        ));
+        ]);
 
-        $builder->add('elements', CollectionType::class, array(
+        $builder->add('elements', CollectionType::class, [
             'label'        => 'Add an element...',
             'entry_type'   => MyElementType::class,
             'allow_add'    => true,
@@ -26,21 +26,21 @@ class MyArrayType extends AbstractType
             'required'     => false,
             'by_reference' => true,
             'delete_empty' => true,
-            'attr'         => array(
+            'attr'         => [
                 'class' => 'doctrine-sample',
-            ),
-        ));
+            ],
+        ]);
 
-        $builder->add('save', SubmitType::class, array(
+        $builder->add('save', SubmitType::class, [
                 'label' => 'Save this array',
-        ));
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Fuz\AppBundle\Entity\MyArray',
-        ));
+        ]);
     }
 
     public function getBlockPrefix()

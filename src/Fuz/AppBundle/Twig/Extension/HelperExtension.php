@@ -35,10 +35,10 @@ class HelperExtension extends \Twig_Extension
 
     public function tabs($files)
     {
-        $basedir  = realpath(__DIR__.'/../../');
-        $tabs = [];
+        $basedir = realpath(__DIR__ . '/../../');
+        $tabs    = [];
         foreach ($this->_getPaths($files) as $file) {
-            $tabs[$file] = file_get_contents($basedir.'/'.$file);
+            $tabs[$file] = file_get_contents($basedir . '/' . $file);
         }
 
         return $this->twig->render('FuzAppBundle::tabs.html.twig', [
@@ -49,16 +49,15 @@ class HelperExtension extends \Twig_Extension
     protected function _getPaths($files)
     {
         $paths = [];
-        foreach ($files as $file)
-        {
-            $basedir  = realpath(__DIR__.'/../../');
-            $realpath = realpath($basedir.'/'.$file);
+        foreach ($files as $file) {
+            $basedir  = realpath(__DIR__ . '/../../');
+            $realpath = realpath($basedir . '/' . $file);
 
             if (!is_file($realpath)) {
                 throw new \LogicException("File {$file} not found");
             }
 
-           $paths[] = substr($realpath, strlen($basedir) + 1);
+            $paths[] = substr($realpath, strlen($basedir) + 1);
         }
         sort($paths);
 

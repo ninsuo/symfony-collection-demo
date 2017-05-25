@@ -5,8 +5,8 @@ namespace Fuz\AppBundle\Controller;
 use Fuz\AppBundle\Base\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type;
+use Symfony\Component\HttpFoundation\Request;
 
 class BasicController extends BaseController
 {
@@ -18,24 +18,24 @@ class BasicController extends BaseController
      */
     public function basicAction(Request $request)
     {
-        $data = array('values' => array("a", "b", "c"));
+        $data = ['values' => ['a', 'b', 'c']];
 
         $form = $this
            ->createFormBuilder($data)
-           ->add('values', Type\CollectionType::class, array(
+           ->add('values', Type\CollectionType::class, [
                'entry_type'    => Type\TextType::class,
-               'entry_options' => array(
+               'entry_options' => [
                    'label' => 'Value',
-               ),
-               'label'         => 'Add, move, remove values and press Submit.',
-               'allow_add'     => true,
-               'allow_delete'  => true,
-               'prototype'     => true,
-               'required'      => false,
-               'attr'          => array(
+               ],
+               'label'        => 'Add, move, remove values and press Submit.',
+               'allow_add'    => true,
+               'allow_delete' => true,
+               'prototype'    => true,
+               'required'     => false,
+               'attr'         => [
                    'class' => 'my-selector',
-               ),
-           ))
+               ],
+           ])
            ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
@@ -45,9 +45,9 @@ class BasicController extends BaseController
             $data = $form->getData();
         }
 
-        return array(
+        return [
                 'form' => $form->createView(),
                 'data' => $data,
-        );
+        ];
     }
 }

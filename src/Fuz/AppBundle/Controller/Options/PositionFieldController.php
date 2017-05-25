@@ -3,13 +3,12 @@
 namespace Fuz\AppBundle\Controller\Options;
 
 use Fuz\AppBundle\Base\BaseController;
+use Fuz\AppBundle\Entity\PositionField\Action;
+use Fuz\AppBundle\Entity\PositionField\Actions;
+use Fuz\AppBundle\Form\PositionField\ActionsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type;
-use Fuz\AppBundle\Entity\PositionField\Actions;
-use Fuz\AppBundle\Entity\PositionField\Action;
-use Fuz\AppBundle\Form\PositionField\ActionsType;
 
 /**
  * @Route("/options")
@@ -34,16 +33,16 @@ class PositionFieldController extends BaseController
 
             switch ($i) {
                 case 0:
-                    $action->setName("walk the dog");
+                    $action->setName('walk the dog');
                     break;
                 case 1:
-                    $action->setName("eat breakfast");
+                    $action->setName('eat breakfast');
                     break;
                 case 2:
-                    $action->setName("take a shower");
+                    $action->setName('take a shower');
                     break;
                 case 3:
-                    $action->setName("yawn loudly");
+                    $action->setName('yawn loudly');
                     break;
             }
 
@@ -57,9 +56,9 @@ class PositionFieldController extends BaseController
             $form->handleRequest($request);
         }
 
-        return array(
+        return [
             'form' => $form->createView(),
-            "data" => $actions,
-        );
+            'data' => $actions,
+        ];
     }
 }

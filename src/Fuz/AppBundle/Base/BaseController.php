@@ -5,31 +5,31 @@ namespace Fuz\AppBundle\Base;
 use Fuz\AppBundle\Entity\Value;
 use Fuz\AppBundle\Form\ValueType;
 use Fuz\QuickStartBundle\Base\BaseController as QuickStartBase;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type;
+use Symfony\Component\HttpFoundation\Request;
 
 class BaseController extends QuickStartBase
 {
-    protected function createContextSample(Request $request, $name = 'form', $values = array("a", "b", "c"))
+    protected function createContextSample(Request $request, $name = 'form', $values = ['a', 'b', 'c'])
     {
-        $data = array('values' => $values);
+        $data = ['values' => $values];
 
         $form = $this
            ->get('form.factory')
            ->createNamedBuilder($name, Type\FormType::class, $data)
-           ->add('values', Type\CollectionType::class, array(
+           ->add('values', Type\CollectionType::class, [
                'entry_type'    => Type\TextType::class,
                'label'         => 'Add, move, remove values and press Submit.',
-               'entry_options' => array(
+               'entry_options' => [
                    'label' => 'Value',
-               ),
-               'allow_add'     => true,
-               'allow_delete'  => true,
-               'prototype'     => true,
-               'attr'          => array(
+               ],
+               'allow_add'    => true,
+               'allow_delete' => true,
+               'prototype'    => true,
+               'attr'         => [
                    'class' => "{$name}-collection",
-               ),
-           ))
+               ],
+           ])
            ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
@@ -39,34 +39,34 @@ class BaseController extends QuickStartBase
             $data = $form->getData();
         }
 
-        return array(
+        return [
             $name         => $form->createView(),
             "{$name}Data" => $data,
-        );
+        ];
     }
 
     protected function createAdvancedContextSample(Request $request, $name = 'advancedForm')
     {
-        $a = new Value("a");
-        $b = new Value("b");
-        $c = new Value("c");
+        $a = new Value('a');
+        $b = new Value('b');
+        $c = new Value('c');
 
-        $data = array('values' => array($a, $b, $c));
+        $data = ['values' => [$a, $b, $c]];
 
         $form = $this
            ->get('form.factory')
            ->createNamedBuilder($name, Type\FormType::class, $data)
-           ->add('values', Type\CollectionType::class, array(
+           ->add('values', Type\CollectionType::class, [
                'entry_type'   => ValueType::class,
                'label'        => 'Add, move, remove values and press Submit.',
                'allow_add'    => true,
                'allow_delete' => true,
                'prototype'    => true,
                'required'     => false,
-               'attr'         => array(
+               'attr'         => [
                    'class' => "{$name}-collection",
-               ),
-           ))
+               ],
+           ])
            ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
@@ -76,9 +76,9 @@ class BaseController extends QuickStartBase
             $data = $form->getData();
         }
 
-        return array(
+        return [
             $name         => $form->createView(),
             "{$name}Data" => $data,
-        );
+        ];
     }
 }

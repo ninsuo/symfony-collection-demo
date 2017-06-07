@@ -1,1 +1,0 @@
-/Users/alain/Data/developpement/symfony-collection/jquery.collection.js

@@ -23,7 +23,7 @@
               Add button will disappear if your collection has 5 elements, and Remove button if your collection has 2 elements.
           </p>
 
-             {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+             {% form_theme form 'jquery.collection.html.twig' %}
              {{ form(form) }}
 
             {% for value in formData.values %}
@@ -41,7 +41,7 @@
 
             {%
                 form_theme advancedForm
-                    'FuzAppBundle::jquery.collection.html.twig'
+                    'jquery.collection.html.twig'
                     'FuzAppBundle:Options:options-theme.html.twig'
             %}
 

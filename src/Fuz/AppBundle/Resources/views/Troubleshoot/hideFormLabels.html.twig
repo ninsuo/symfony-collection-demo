@@ -21,7 +21,7 @@
 
     {# Demo A : default behavior #}
 
-    {% form_theme formA 'FuzAppBundle::jquery.collection.html.twig' %}
+    {% form_theme formA 'jquery.collection.html.twig' %}
 
     <h3>By default, {% verbatim %}{{ form_row() }}{% endverbatim %}</h3>
 
@@ -74,7 +74,7 @@
     {% block task_label %}{% endblock %}
 
     {# "_self" will use the block declared above to overwrite the default theme #}
-    {% form_theme formC _self 'FuzAppBundle::jquery.collection.html.twig' %}
+    {% form_theme formC _self 'jquery.collection.html.twig' %}
 
     {{ form_start(formC) }}
     {{ form_row(formC.tasks, {'attr': {'class': 'collectionA'} }) }}

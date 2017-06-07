@@ -1,7 +1,7 @@
 {% extends 'FuzAppBundle::layout.html.twig' %}
 
 {% block extra_js %}
-    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
 {% block title %}JavaScript options : events on buttons{% endblock %}
@@ -37,7 +37,7 @@
         <div class="col-md-6">
             <h3>Events before updating the collection</h3>
 
-             {% form_theme eventsBefore 'FuzAppBundle::jquery.collection.html.twig' %}
+             {% form_theme eventsBefore 'jquery.collection.html.twig' %}
             {{ form(eventsBefore) }}
 
             {% for value in eventsBeforeData.values %}
@@ -48,7 +48,7 @@
         <div class="col-md-6">
             <h3>Events after updating the collection</h3>
 
-            {% form_theme eventsAfter 'FuzAppBundle::jquery.collection.html.twig' %}
+            {% form_theme eventsAfter 'jquery.collection.html.twig' %}
             {{ form(eventsAfter) }}
 
             {% for value in eventsAfterData.values %}

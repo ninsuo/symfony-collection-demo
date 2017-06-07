@@ -1,5 +1,5 @@
 {
-   "name": "ninsuo/symfony-collection",
+   "name": "ninsuo/symfony-collection-demo",
    "description": "Symfony collection demo website",
    "license": "MIT",
    "type": "project",
@@ -35,7 +35,8 @@
       "knplabs/knp-menu-bundle": "^2.0",
       "easycorp/easy-security-bundle": "^1.0",
       "egeloen/ckeditor-bundle": "^4.0",
-      "exercise/htmlpurifier-bundle": "^0.2.3"
+      "exercise/htmlpurifier-bundle": "^0.2.3",
+      "ninsuo/symfony-collection": "dev-master"
    },
    "require-dev": {
       "sensio/generator-bundle": "^3.0",
@@ -53,7 +54,8 @@
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
          "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
-         "php app/console assetic:dump web/"
+         "php app/console assetic:dump web/",
+         "Fuz\\Symfony\\Collection\\ScriptHandler::postInstall"
       ],
       "post-update-cmd": [
          "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -63,7 +65,8 @@
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
          "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
-         "php app/console assetic:dump web/"
+         "php app/console assetic:dump web/",
+         "Fuz\\Symfony\\Collection\\ScriptHandler::postUpdate"
       ]
    },
    "config": {

@@ -1,7 +1,7 @@
 {% extends 'FuzAppBundle::layout.html.twig' %}
 
 {% block extra_js %}
-    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
 {% block title %}Basic usage{% endblock %}
@@ -16,7 +16,7 @@
     <p>Enter a jQuery URL in the field below to include it instead of the current version.</p>
     <p>You can find jQuery core urls at <a href="https://code.jquery.com/jquery/" target="new" rel="noopener noreferrer">https://code.jquery.com/jquery/</a></p>
 
-    {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+    {% form_theme form 'jquery.collection.html.twig' %}
     {{ form(form) }}
 
     <hr/>

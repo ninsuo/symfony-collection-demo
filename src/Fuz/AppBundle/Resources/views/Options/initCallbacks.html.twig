@@ -1,7 +1,7 @@
 {% extends 'FuzAppBundle::layout.html.twig' %}
 
 {% block extra_js %}
-    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
 {% block title %}JavaScript options : events at initialization{% endblock %}
@@ -29,7 +29,7 @@
             <button id="demo" class="btn btn-danger">Click me</button>
             <br/><br/>
 
-            {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+            {% form_theme form 'jquery.collection.html.twig' %}
             {{ form(form) }}
 
             {% for value in formData.values %}

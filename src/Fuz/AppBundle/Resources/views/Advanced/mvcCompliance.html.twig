@@ -1,7 +1,7 @@
 {% extends 'FuzAppBundle::layout.html.twig' %}
 
 {% block extra_js %}
-    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
 {% block title %}Advanced usage: MVC compliance{% endblock %}
@@ -20,7 +20,7 @@
         <code>data-collection="{% verbatim %}{{ form.collectionField.vars.id }}{% endverbatim %}"</code>.
     </p>
 
-    {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+    {% form_theme form 'jquery.collection.html.twig' %}
     {{ form(form) }}
 
     <hr/>

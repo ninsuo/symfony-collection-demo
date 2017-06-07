@@ -1,7 +1,7 @@
 {% extends 'FuzAppBundle::layout.html.twig' %}
 
 {% block extra_js %}
-    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
 {% block title %}A jQuery plugin to manage your Symfony form collections{% endblock %}
@@ -54,7 +54,7 @@
 
             {%
                 form_theme withPlugin
-                    'FuzAppBundle::jquery.collection.html.twig'
+                    'jquery.collection.html.twig'
                     'FuzAppBundle:Options:options-theme.html.twig'
             %}
             {{ form(withPlugin) }}

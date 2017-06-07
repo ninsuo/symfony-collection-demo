@@ -1,7 +1,7 @@
 {% extends 'FuzAppBundle::layout.html.twig' %}
 
 {% block extra_js %}
-    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
 {% block title %}JavaScript options : Initialize your collection with a given minimum number of elements{% endblock %}
@@ -12,7 +12,7 @@
 
     <p>Use <code>init_with_n_elements</code> option to ensure that your collection will be initialized with the given number of arguments.
 
-    {% form_theme form 'FuzAppBundle::jquery.collection.html.twig' %}
+    {% form_theme form 'jquery.collection.html.twig' %}
     {{ form(form) }}
 
     <hr/>

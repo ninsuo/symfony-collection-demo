@@ -1,7 +1,7 @@
 {% extends 'FuzAppBundle::layout.html.twig' %}
 
 {% block extra_js %}
-    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
 {% block title %}JavaScript options : put only one "add" button at the bottom{% endblock %}
@@ -24,7 +24,7 @@
                 This is the default behaviour, an <code>add</code> button is added for each element of the collection.
             </p>
 
-            {% form_theme disabled 'FuzAppBundle::jquery.collection.html.twig' %}
+            {% form_theme disabled 'jquery.collection.html.twig' %}
             {{ form(disabled) }}
 
             {% for value in disabledData.values %}
@@ -41,7 +41,7 @@
                 Only one <code>add</code> button is available, located at the bottom of the collection.
             </p>
 
-            {% form_theme enabled 'FuzAppBundle::jquery.collection.html.twig' %}
+            {% form_theme enabled 'jquery.collection.html.twig' %}
             {{ form(enabled) }}
 
             {% for value in enabledData.values %}

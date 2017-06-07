@@ -1,7 +1,7 @@
 {% extends 'FuzAppBundle::layout.html.twig' %}
 
 {% block extra_js %}
-    <script src="{{ asset('bundles/fuzapp/js/collection/jquery.collection.js') }}"></script>
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
 {% block title %}JavaScript options : drag & drop{% endblock %}
@@ -41,7 +41,7 @@
 
             {%
                 form_theme disabled.disabled
-                    'FuzAppBundle::jquery.collection.html.twig'
+                    'jquery.collection.html.twig'
                     'FuzAppBundle:Options:options-theme.html.twig'
             %}
             {{ form(disabled.disabled) }}
@@ -71,7 +71,7 @@
 
             {%
                 form_theme nobuttons.nobuttons
-                    'FuzAppBundle::jquery.collection.html.twig'
+                    'jquery.collection.html.twig'
                     'FuzAppBundle:Options:options-theme.html.twig'
             %}
             {{ form(nobuttons.nobuttons) }}
@@ -100,7 +100,7 @@
 
             {%
                 form_theme moreoptions.moreoptions
-                    'FuzAppBundle::jquery.collection.html.twig'
+                    'jquery.collection.html.twig'
                     'FuzAppBundle:Options:options-theme.html.twig'
             %}
             {{ form(moreoptions.moreoptions) }}
@@ -132,7 +132,7 @@
 
             {%
                 form_theme startupdate.startupdate
-                    'FuzAppBundle::jquery.collection.html.twig'
+                    'jquery.collection.html.twig'
                     'FuzAppBundle:Options:options-theme.html.twig'
             %}
             {{ form(startupdate.startupdate) }}

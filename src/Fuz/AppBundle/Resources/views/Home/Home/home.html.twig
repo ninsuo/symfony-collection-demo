@@ -35,7 +35,7 @@
             <p>No way to add, move and delete elements... In most case, that's weird on form collections!</p>
             <br/>
 
-            {% form_theme noPlugin 'FuzAppBundle:Home/home:formThemeNoButtons.html.twig'%}
+            {% form_theme noPlugin 'FuzAppBundle:Home/Home:formThemeNoButtons.html.twig'%}
             {{ form(noPlugin) }}
 
             {% for fruit in noPluginData.fruits %}
@@ -56,7 +56,7 @@
             {%
                 form_theme withPlugin
                     'jquery.collection.html.twig'
-                    'FuzAppBundle:Home/home:formThemeWithButtons.html.twig'
+                    'FuzAppBundle:Home/Home:formThemeWithButtons.html.twig'
             %}
             {{ form(withPlugin) }}
 

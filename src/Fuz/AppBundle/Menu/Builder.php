@@ -14,9 +14,6 @@ class Builder extends BaseMenu
 
         $this->addSubMenu($menu, 'Basic usage');
         $this->addRoute($menu['Basic usage'], 'A simple collection', 'basic_simple_collection');
-        $this->addRoute($menu['Basic usage'], 'Using a form theme', 'basic_form_theme');
-        $this->addRoute($menu['Basic usage'], 'Using Doctrine', 'basic_simple_collection');
-        $this->addRoute($menu['Basic usage'], 'Using Doctrine and a "position" column', 'basic_simple_collection');
 
         $this->addSubMenu($menu, 'JavaScript Options');
         $this->addRoute($menu['JavaScript Options'], "Custom button layout", 'customButtons');
@@ -48,6 +45,8 @@ class Builder extends BaseMenu
 
         $this->addSubMenu($menu, 'Symfony 3.x');
         $this->addUri($menu['Symfony 3.x'], 'Switch to Symfony 2.x', '/symfony2');
+
+        $this->addUri($menu, 'Download', 'https://github.com/ninsuo/symfony-collection');
 
         return $menu;
     }

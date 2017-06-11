@@ -27,10 +27,10 @@ class HelperExtension extends \Twig_Extension
         ];
     }
 
-    public function github($files)
+    public function github($path)
     {
         return $this->twig->render('FuzAppBundle::github.html.twig', [
-            'paths' => $this->_getPaths($files),
+            'path' => $path,
         ]);
     }
 

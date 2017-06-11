@@ -16,7 +16,7 @@ class SimpleCollectionController extends BaseController
     /**
      * A simple collection that even don't use an entity.
      *
-     * @Route("/simple-collection", name="basic_simple_collection")
+     * @Route("/simple-collection", name="basic")
      * @Template()
      */
     public function simpleCollectionAction(Request $request)

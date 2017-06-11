@@ -17,14 +17,17 @@ php app/console server:start
 
 ## Usage
 
-All samples have their own controllers, form types, views etc. for easier readability.
+All "Basic Usage" samples have their own controllers, form types, views etc. for easier readability.
 
-If you go to `http://127.0.0.1:8000/options/positionField`, it means that:
+If you go to `http://127.0.0.1:8000/basic/positionField`, it means that:
 
-- Controller is at `AppBundle\Controller\Options\PositionFieldController.php`
-- Entities are at  `AppBundle\Entity\Options\PositionField`
-- Form types are at `AppBundle\Form\Options\PositionField`
-- Views and form themes are at `AppBundle\Resources\views\Options\PositionField`
+- Controller is at `AppBundle\Controller\Basic\PositionFieldController.php`
+- Entities are at  `AppBundle\Entity\Basic\PositionField`
+- Form types are at `AppBundle\Form\Basic\PositionField`
+- Views and form themes are at `AppBundle\Resources\views\Basic\PositionField`
+
+Other samples use more generic data because that was quicker to code. If you feel that's not easy enough to understand,
+don't hesitate to throw a suggestion or a PR.
 
 ## License
 

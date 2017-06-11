@@ -1,6 +1,6 @@
 <?php
 
-namespace Fuz\AppBundle\Entity\Options\PositionField;
+namespace Fuz\AppBundle\Entity\Basic\PositionField;
 
 use Doctrine\Common\Collections\ArrayCollection;
 

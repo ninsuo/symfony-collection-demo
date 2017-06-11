@@ -13,10 +13,11 @@ class Builder extends BaseMenu
         $this->addRoute($menu, 'Home', 'home');
 
         $this->addSubMenu($menu, 'Basic usage');
-        $this->addRoute($menu['Basic usage'], 'A simple collection', 'basic_simple_collection');
+        $this->addRoute($menu['Basic usage'], 'A simple collection', 'basic');
+        $this->addRoute($menu['Basic usage'], 'Using a "position" column', 'positionField');
 
         $this->addSubMenu($menu, 'JavaScript Options');
-        $this->addRoute($menu['JavaScript Options'], "Custom button layout", 'customButtons');
+        $this->addRoute($menu['JavaScript Options'], "Customize buttons' layout", 'customButtons');
         $this->addRoute($menu['JavaScript Options'], 'Enable / disable buttons', 'enableButtons');
         $this->addRoute($menu['JavaScript Options'], "Control number of collection elements", 'numberCollectionElements');
         $this->addRoute($menu['JavaScript Options'], 'Put only one Add button at the bottom', 'addButtonAtTheBottom');
@@ -28,7 +29,6 @@ class Builder extends BaseMenu
         $this->addRoute($menu['JavaScript Options'], 'Drag & Drop', 'dragAndDrop');
         $this->addRoute($menu['JavaScript Options'], 'Add button at a custom location', 'buttonsCustomLocation');
         $this->addRoute($menu['JavaScript Options'], 'FadeIn & FadeOut on element actions', 'fadeInFadeOut');
-        $this->addRoute($menu['JavaScript Options'], 'Elements position stored on a field', 'positionField');
 
         $this->addSubMenu($menu, 'Advanced usage');
         $this->addRoute($menu['Advanced usage'], 'A better MVC Compliance', 'mvcCompliance');

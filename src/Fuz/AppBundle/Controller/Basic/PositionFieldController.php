@@ -1,25 +1,22 @@
 <?php
 
-namespace Fuz\AppBundle\Controller\Options;
+namespace Fuz\AppBundle\Controller\Basic;
 
 use Fuz\AppBundle\Base\BaseController;
-use Fuz\AppBundle\Entity\Options\PositionField\Action;
-use Fuz\AppBundle\Entity\Options\PositionField\Actions;
-use Fuz\AppBundle\Form\Options\PositionField\ActionsType;
+use Fuz\AppBundle\Entity\Basic\PositionField\Action;
+use Fuz\AppBundle\Entity\Basic\PositionField\Actions;
+use Fuz\AppBundle\Form\Basic\PositionField\ActionsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/options")
+ * @Route("/basic")
  */
 class PositionFieldController extends BaseController
 {
     /**
-     * JavaScript options
-     *
-     * Instead of moving element values in the collection, simply
-     * update a custom position field
+     * Storing the element position on a field of your entity.
      *
      * @Route("/positionField", name="positionField")
      * @Template()

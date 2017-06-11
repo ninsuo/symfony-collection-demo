@@ -194,13 +194,15 @@
         </div>
 
         <div class="col-md-4 follow-scroll">
-            <h3>Result</h3>
+            <fieldset>
+                <legend>Result</legend>
 
-            {{ form(form) }}
+                {{ form(form) }}
 
-            {% for value in formData.values %}
-                <p>Value : {{ value }}</p>
-            {% endfor %}
+                {% for value in formData.values %}
+                    <p>Value : {{ value }}</p>
+                {% endfor %}
+            </fieldset>
         </div>
     </div>
 

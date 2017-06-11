@@ -15,3 +15,5 @@ bin/
 composer.phar
 TODO
 .php_cs.cache
+.web-server-pid
+

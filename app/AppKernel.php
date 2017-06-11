@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new EasyCorp\Bundle\EasySecurityBundle\EasySecurityBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Exercise\HTMLPurifierBundle\ExerciseHTMLPurifierBundle(),
+            new Symfony\Bundle\WebServerBundle\WebServerBundle(),
             new Fuz\AppBundle\FuzAppBundle(),
         );
 

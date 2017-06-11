@@ -36,6 +36,7 @@
       "easycorp/easy-security-bundle": "^1.0",
       "egeloen/ckeditor-bundle": "^4.0",
       "exercise/htmlpurifier-bundle": "^0.2.3",
+      "symfony/web-server-bundle": "^3.3",
       "ninsuo/symfony-collection": "dev-master"
    },
    "require-dev": {
@@ -54,8 +55,8 @@
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
          "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
-         "php app/console assetic:dump web/",
-         "Fuz\\Symfony\\Collection\\ScriptHandler::postInstall"
+         "Fuz\\Symfony\\Collection\\ScriptHandler::postInstall",
+         "php app/console assetic:dump web/"
       ],
       "post-update-cmd": [
          "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -65,8 +66,8 @@
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
          "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
-         "php app/console assetic:dump web/",
-         "Fuz\\Symfony\\Collection\\ScriptHandler::postUpdate"
+         "Fuz\\Symfony\\Collection\\ScriptHandler::postUpdate",
+         "php app/console assetic:dump web/"
       ]
    },
    "config": {

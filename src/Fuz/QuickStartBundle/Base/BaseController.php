@@ -30,7 +30,7 @@ abstract class BaseController extends Controller
      */
     protected function getErrorMessages(Form $form)
     {
-        $errors = array();
+        $errors = [];
 
         foreach ($form->getErrors() as $error) {
             if ($form->isRoot()) {
@@ -104,7 +104,7 @@ abstract class BaseController extends Controller
 
     private function normalizeErrorMessagesAjaxFormat(array $errors, $prefix)
     {
-        $normalizedErrors = array();
+        $normalizedErrors = [];
         foreach ($errors as $key => $error) {
             if (is_array($error)) {
                 $normalizedErrors = array_merge($normalizedErrors, $this->normalizeErrorMessagesAjaxFormat($error, "{$prefix}_{$key}"));
@@ -126,7 +126,7 @@ abstract class BaseController extends Controller
     protected function goBack(Request $request)
     {
         if ($request->getSession()->has('previous_route')) {
-            $route = $request->getSession()->get('previous_route');
+            $route                      = $request->getSession()->get('previous_route');
             $route['params']['_locale'] = $request->getLocale();
 
             return $this->redirect($this->generateUrl($route['name'], $route['params']));
@@ -140,32 +140,32 @@ abstract class BaseController extends Controller
         return $this->redirect($this->generateUrl('home'));
     }
 
-    public function info($message, array $parameters = array())
+    public function info($message, array $parameters = [])
     {
         $this->addFlash('info', $this->trans($message, $parameters));
     }
 
-    public function alert($message, array $parameters = array())
+    public function alert($message, array $parameters = [])
     {
         $this->addFlash('alert', $this->trans($message, $parameters));
     }
 
-    public function danger($message, array $parameters = array())
+    public function danger($message, array $parameters = [])
     {
         $this->addFlash('danger', $this->trans($message, $parameters));
     }
 
-    public function success($message, array $parameters = array())
+    public function success($message, array $parameters = [])
     {
         $this->addFlash('success', $this->trans($message, $parameters));
     }
 
-    public function trans($property, array $parameters = array())
+    public function trans($property, array $parameters = [])
     {
         return $this->container->get('translator')->trans($property, $parameters);
     }
 
-    public function fwd($controller, array $path = array(), array $query = array())
+    public function fwd($controller, array $path = [], array $query = [])
     {
         return $this->forward($controller, $path, $query);
     }

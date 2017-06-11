@@ -41,7 +41,7 @@ class MyArrayRepository extends EntityRepository
             ")
            ->execute()
         ;
-        $names  = array();
+        $names = [];
         foreach ($arrays as $array) {
             $names[] = $array['name'];
         }

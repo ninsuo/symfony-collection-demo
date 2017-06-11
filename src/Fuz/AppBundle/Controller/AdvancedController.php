@@ -5,18 +5,17 @@ namespace Fuz\AppBundle\Controller;
 use Fuz\AppBundle\Base\BaseController;
 use Fuz\AppBundle\Entity\Address;
 use Fuz\AppBundle\Entity\Addresses;
-use Fuz\AppBundle\Entity\Value;
 use Fuz\AppBundle\Entity\Fancy;
 use Fuz\AppBundle\Entity\FancyCollection;
-use Fuz\AppBundle\Form\FancyTypeFancyType;
-use Fuz\AppBundle\Form\FancyCollectionType;
+use Fuz\AppBundle\Entity\Value;
 use Fuz\AppBundle\Form\AddressesType;
+use Fuz\AppBundle\Form\FancyCollectionType;
 use Fuz\AppBundle\Form\MyArrayType;
 use Fuz\AppBundle\Form\ValueType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/advanced")
@@ -34,24 +33,24 @@ class AdvancedController extends BaseController
      */
     public function mvcComplianceAction(Request $request)
     {
-        $data = array('values' => array("a", "b", "c"));
+        $data = ['values' => ['a', 'b', 'c']];
 
         $form = $this
            ->createFormBuilder($data)
-           ->add('values', Type\CollectionType::class, array(
+           ->add('values', Type\CollectionType::class, [
                'entry_type'    => Type\TextType::class,
                'label'         => 'Add, move, remove values and press Submit.',
-               'entry_options' => array(
+               'entry_options' => [
                    'label' => 'Value',
-               ),
-               'allow_add'     => true,
-               'allow_delete'  => true,
-               'prototype'     => true,
-               'required'      => false,
+               ],
+               'allow_add'    => true,
+               'allow_delete' => true,
+               'prototype'    => true,
+               'required'     => false,
 //                   'attr' => array (
 //                           'class' => 'my-selector', <--- Not MVC compliant!
 //                   ),
-           ))
+           ])
            ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
@@ -61,10 +60,10 @@ class AdvancedController extends BaseController
             $data = $form->getData();
         }
 
-        return array(
+        return [
             'form' => $form->createView(),
             'data' => $data,
-        );
+        ];
     }
 
     /**
@@ -77,21 +76,21 @@ class AdvancedController extends BaseController
      */
     public function customFormThemeAction(Request $request)
     {
-        $data = array('values' => array(new Value("a"), new Value("b"), new Value("c")));
+        $data = ['values' => [new Value('a'), new Value('b'), new Value('c')]];
 
         $form = $this
            ->createFormBuilder($data)
-           ->add('values', Type\CollectionType::class, array(
+           ->add('values', Type\CollectionType::class, [
                'entry_type'   => ValueType::class,
                'label'        => 'Add, move, remove values and press Submit.',
                'allow_add'    => true,
                'allow_delete' => true,
                'prototype'    => true,
                'required'     => false,
-               'attr'         => array(
+               'attr'         => [
                    'class' => 'collection',
-               ),
-           ))
+               ],
+           ])
            ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
@@ -101,10 +100,10 @@ class AdvancedController extends BaseController
             $data = $form->getData();
         }
 
-        return array(
+        return [
             'form' => $form->createView(),
             'data' => $data,
-        );
+        ];
     }
 
     /**
@@ -132,42 +131,42 @@ class AdvancedController extends BaseController
      */
     public function collectionOfCollectionsAction(Request $request)
     {
-        $data = array(
-            'collections' => array(
-                array(new Value("a"), new Value("b"), new Value("c")),
-                array(new Value("d"), new Value("e"), new Value("f")),
-                array(new Value("g"), new Value("h"), new Value("i")),
-            ),
-        );
+        $data = [
+            'collections' => [
+                [new Value('a'), new Value('b'), new Value('c')],
+                [new Value('d'), new Value('e'), new Value('f')],
+                [new Value('g'), new Value('h'), new Value('i')],
+            ],
+        ];
 
         $form = $this
            ->get('form.factory')
            ->createNamedBuilder('form', Type\FormType::class, $data)
-           ->add('collections', Type\CollectionType::class, array(
-               'entry_type'     => Type\CollectionType::class,
-               'label'          => 'Add, move, remove collections',
-               'entry_options'  => array(
-                   'entry_type'     => ValueType::class,
-                   'label'          => 'Add, move, remove values',
-                   'entry_options'  => array(
+           ->add('collections', Type\CollectionType::class, [
+               'entry_type'    => Type\CollectionType::class,
+               'label'         => 'Add, move, remove collections',
+               'entry_options' => [
+                   'entry_type'    => ValueType::class,
+                   'label'         => 'Add, move, remove values',
+                   'entry_options' => [
                        'label' => 'Value',
-                   ),
+                   ],
                    'allow_add'      => true,
                    'allow_delete'   => true,
                    'prototype'      => true,
                    'prototype_name' => '__children_name__',
-                   'attr'           => array(
-                       'class' => "child-collection",
-                   ),
-               ),
+                   'attr'           => [
+                       'class' => 'child-collection',
+                   ],
+               ],
                'allow_add'      => true,
                'allow_delete'   => true,
                'prototype'      => true,
                'prototype_name' => '__parent_name__',
-               'attr'           => array(
-                   'class' => "parent-collection",
-               ),
-           ))
+               'attr'           => [
+                   'class' => 'parent-collection',
+               ],
+           ])
            ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
@@ -177,10 +176,10 @@ class AdvancedController extends BaseController
             $data = $form->getData();
         }
 
-        return array(
+        return [
             'form' => $form->createView(),
-            "data" => $data,
-        );
+            'data' => $data,
+        ];
     }
 
     /**
@@ -215,11 +214,11 @@ class AdvancedController extends BaseController
 
         $form->get('save')->isClicked() && $form->isValid() && $repo->save($data);
 
-        return array(
+        return [
             'names' => $repo->getArrayNames(),
-            'form' => $form->createView(),
-            "data" => $data,
-        );
+            'form'  => $form->createView(),
+            'data'  => $data,
+        ];
     }
 
     /**
@@ -237,9 +236,9 @@ class AdvancedController extends BaseController
             $repo->delete($data);
         }
 
-        return $this->forward('FuzAppBundle:Advanced:usageWithDoctrine', array(
+        return $this->forward('FuzAppBundle:Advanced:usageWithDoctrine', [
             'name' => 'example',
-        ));
+        ]);
     }
 
     /**
@@ -269,10 +268,10 @@ class AdvancedController extends BaseController
             $form->handleRequest($request);
         }
 
-        return array(
+        return [
             'form' => $form->createView(),
-            "data" => $addresses,
-        );
+            'data' => $addresses,
+        ];
     }
 
     /**
@@ -300,9 +299,9 @@ class AdvancedController extends BaseController
             $data = $form->getData();
         }
 
-        return array(
+        return [
             'form' => $form->createView(),
             'data' => $fancyCollection,
-        );
+        ];
     }
 }

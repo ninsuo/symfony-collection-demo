@@ -11,7 +11,7 @@ abstract class BaseMenu implements ContainerAwareInterface
 {
     use ContainerAwareTrait;
 
-    const POSITION_LEFT = 'left';
+    const POSITION_LEFT  = 'left';
     const POSITION_RIGHT = 'right';
 
     protected function createMenu(FactoryInterface $factory, $position)
@@ -26,37 +26,37 @@ abstract class BaseMenu implements ContainerAwareInterface
         return $menu;
     }
 
-    protected function addRoute(ItemInterface $menu, $name, $route, array $routeParams = array(), array $childParams = array(), $divider = false)
+    protected function addRoute(ItemInterface $menu, $name, $route, array $routeParams = [], array $childParams = [], $divider = false)
     {
         $uri = $this->container->get('router')->generate($route, $routeParams);
 
         return $this->addUri($menu, $name, $uri, $childParams, $divider);
     }
 
-    protected function addUri(ItemInterface $menu, $name, $uri, array $childParams = array(), $divider = false)
+    protected function addUri(ItemInterface $menu, $name, $uri, array $childParams = [], $divider = false)
     {
         $currentUri = $this->container->get('request_stack')->getCurrentRequest()->getRequestUri();
 
         $key = sha1($name);
 
-        $item = $menu->addChild($key, array_merge($childParams, array(
-            'uri' => $uri,
+        $item = $menu->addChild($key, array_merge($childParams, [
+            'uri'   => $uri,
             'label' => $name,
-        )));
+        ]));
 
         if ($divider) {
             $menu[$key]->setAttribute('divider', true);
         }
 
         $isCurrent = false;
-        $first = null;
-        $elem = $item;
+        $first     = null;
+        $elem      = $item;
         while (!$elem->isRoot()) {
             if (strcmp($currentUri, $elem->getUri()) == 0) {
                 $isCurrent = true;
             }
             $first = $elem;
-            $elem = $elem->getParent();
+            $elem  = $elem->getParent();
         }
 
         if (!is_null($first)) {
@@ -71,7 +71,7 @@ abstract class BaseMenu implements ContainerAwareInterface
 
     protected function addSubMenu(ItemInterface $menu, $label)
     {
-        $menu->addChild($label, array('uri' => '#'));
+        $menu->addChild($label, ['uri' => '#']);
         $menu[$label]->setAttribute('class', 'dropdown');
         if ($menu->getParent()) {
             $menu[$label]->setAttribute('class', 'dropdown-submenu');
@@ -85,7 +85,7 @@ abstract class BaseMenu implements ContainerAwareInterface
         $menu[$label]->setLinkAttribute('aria-expanded', 'false');
     }
 
-    protected function trans($property, array $parameters = array())
+    protected function trans($property, array $parameters = [])
     {
         return $this->container->get('translator')->trans($property, $parameters);
     }

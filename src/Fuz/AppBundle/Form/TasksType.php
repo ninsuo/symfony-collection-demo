@@ -12,7 +12,7 @@ class TasksType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('tasks', CollectionType::class, array(
+        $builder->add('tasks', CollectionType::class, [
             'label'        => 'Tasks',
             'entry_type'   => TaskType::class,
             'allow_add'    => true,
@@ -21,17 +21,17 @@ class TasksType extends AbstractType
             'required'     => false,
             'by_reference' => true,
             'delete_empty' => true,
-        ));
+        ]);
 
-        $builder->add('save', SubmitType::class, array(
+        $builder->add('save', SubmitType::class, [
                 'label' => 'See my tasks',
-        ));
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Fuz\AppBundle\Entity\Tasks',
-        ));
+        ]);
     }
 }

@@ -19,70 +19,81 @@
         </p>
     {% endverbatim %}
 
-    {# Demo A : default behavior #}
+    <div class="row">
+        <div class="col-md-4">
 
-    {% form_theme formA 'jquery.collection.html.twig' %}
+            {# Demo A : default behavior #}
 
-    <h3>By default, {% verbatim %}{{ form_row() }}{% endverbatim %}</h3>
+            {% form_theme formA 'jquery.collection.html.twig' %}
 
-    {{ form_start(formA) }}
-    {{ form_row(formA.tasks, {'attr': {'class': 'collectionA'} }) }}
-    {{ form_end(formA) }}
+            <h3>By default, {% verbatim %}{{ form_row() }}{% endverbatim %}</h3>
 
-    {% for task in dataA.tasks %}
-        <p>Should <strong>{{ task.task }}</strong> before <strong>{{ task.dueDate|date }}</strong></p>
-    {% endfor %}
+            {{ form_start(formA) }}
+            {{ form_row(formA.tasks, {'attr': {'class': 'collectionA'} }) }}
+            {{ form_end(formA) }}
 
-    <hr/>
+            {% for task in dataA.tasks %}
+                <p>Should <strong>{{ task.task }}</strong> before <strong>{{ task.dueDate|date }}</strong></p>
+            {% endfor %}
 
-    {# Demo B : hiding labels without using form theme #}
+        </div>
+        <div class="col-md-4">
 
-    <h3>By using {% verbatim %}{{ form_widget() }} {% endverbatim %} without form theme</h3>
+            {# Demo B : hiding labels without using form theme #}
 
-    {{ form_start(formB) }}
+            <h3>By using {% verbatim %}{{ form_widget() }} {% endverbatim %} without form theme</h3>
 
-    <div
-        id="formB-demo"
-        class="collectionB"
-        {% if formB.tasks.vars.prototype is defined %}
-            data-prototype="{{ form_widget(formB.tasks.vars.prototype)|e('html_attr') }}"
-            data-prototype-name="{{ formB.tasks.vars.prototype.vars.name|e('html_attr') }}"
-        {% endif %}
-        data-allow-add="{{ formB.tasks.vars.allow_add }}"
-        data-allow-remove="{{ formB.tasks.vars.allow_delete }}"
-        data-name-prefix="{{ formB.tasks.vars.full_name }}"
-     >
-        {% for task in formB.tasks %}
-            {{ form_widget(task) }}
-            {{ form_errors(task) }}
-        {% endfor %}
+            {{ form_start(formB) }}
+
+            <div
+                id="formB-demo"
+                class="collectionB"
+                {% if formB.tasks.vars.prototype is defined %}
+                    data-prototype="{{ form_widget(formB.tasks.vars.prototype)|e('html_attr') }}"
+                    data-prototype-name="{{ formB.tasks.vars.prototype.vars.name|e('html_attr') }}"
+                {% endif %}
+                data-allow-add="{{ formB.tasks.vars.allow_add }}"
+                data-allow-remove="{{ formB.tasks.vars.allow_delete }}"
+                data-name-prefix="{{ formB.tasks.vars.full_name }}"
+             >
+                {% for task in formB.tasks %}
+                    {{ form_widget(task) }}
+                    {{ form_errors(task) }}
+                {% endfor %}
+            </div>
+
+            {{ form_end(formB) }}
+
+            {% for task in dataB.tasks %}
+                <p>Should <strong>{{ task.task }}</strong> before <strong>{{ task.dueDate|date }}</strong></p>
+            {% endfor %}
+
+        </div>
+        <div class="col-md-4">
+
+            {# Demo C : using a form theme #}
+
+            <h3>By using a form theme [Recommanded]</h3>
+
+            {# "task" is your field type name (look at the comments in TaskType) #}
+            {% block task_label %}{% endblock %}
+
+            {# "_self" will use the block declared above to overwrite the default theme #}
+            {% form_theme formC _self 'jquery.collection.html.twig' %}
+
+            {{ form_start(formC) }}
+            {{ form_row(formC.tasks, {'attr': {'class': 'collectionA'} }) }}
+            {{ form_end(formC) }}
+
+            {% for task in dataC.tasks %}
+                <p>Should <strong>{{ task.task }}</strong> before <strong>{{ task.dueDate|date }}</strong></p>
+            {% endfor %}
+
+        </div>
+
     </div>
 
-    {{ form_end(formB) }}
-
-    {% for task in dataB.tasks %}
-        <p>Should <strong>{{ task.task }}</strong> before <strong>{{ task.dueDate|date }}</strong></p>
-    {% endfor %}
-
     <hr/>
-
-    {# Demo C : using a form theme #}
-
-    <h3>By using a form theme [Recommanded]</h3>
-
-    {# "task" is your field type name (look at the comments in TaskType) #}
-    {% block task_label %}{% endblock %}
-
-    {# "_self" will use the block declared above to overwrite the default theme #}
-    {% form_theme formC _self 'jquery.collection.html.twig' %}
-
-    {{ form_start(formC) }}
-    {{ form_row(formC.tasks, {'attr': {'class': 'collectionA'} }) }}
-    {{ form_end(formC) }}
-
-    {% for task in dataC.tasks %}
-        <p>Should <strong>{{ task.task }}</strong> before <strong>{{ task.dueDate|date }}</strong></p>
-    {% endfor %}
 
     {{
         tabs([

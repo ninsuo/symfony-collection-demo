@@ -1,11 +1,11 @@
 <?php
 
-namespace Fuz\AppBundle\Form\PositionField;
+namespace Fuz\AppBundle\Form\Basic\PositionField;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ActionType extends AbstractType
 {
@@ -26,16 +26,16 @@ class ActionType extends AbstractType
         $builder->add('position', TextType::class, [
             'attr' => [
                 'readonly' => true,
-                'class' => 'my-position', // selector is the one used on the js side
+                'class'    => 'my-position', // selector is the one used on the js side
             ],
         ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Fuz\AppBundle\Entity\PositionField\Action',
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'Fuz\AppBundle\Entity\Basic\PositionField\Action',
+        ]);
     }
 
     public function getBlockPrefix()

@@ -23,13 +23,14 @@
 
     <hr/>
 
-    <p>Code used:</p>
+    <p>Code used to initialize the collection:</p>
     <pre>{{ block('script') | e }}</pre>
 
+    <p>Full Symfony code:</p>
     {{
         tabs([
-            'Controller/BasicController.php',
-            'Resources/views/Basic/basic.html.twig',
+            'Controller/Basic/SimpleCollectionController.php',
+            'Resources/views/Basic/SimpleCollection/simpleCollection.html.twig',
         ])
     }}
 

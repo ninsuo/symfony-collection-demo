@@ -12,7 +12,7 @@ class AddressesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('addresses', CollectionType::class, array(
+        $builder->add('addresses', CollectionType::class, [
             'label'        => 'Address',
             'entry_type'   => AddressType::class,
             'allow_add'    => true,
@@ -21,21 +21,21 @@ class AddressesType extends AbstractType
             'required'     => false,
             'by_reference' => true,
             'delete_empty' => true,
-            'attr'         => array(
+            'attr'         => [
                 'class' => 'collection',
-            ),
-        ));
+            ],
+        ]);
 
-        $builder->add('save', SubmitType::class, array(
+        $builder->add('save', SubmitType::class, [
                 'label' => 'See my addresses',
-        ));
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Fuz\AppBundle\Entity\Addresses',
-        ));
+        ]);
     }
 
     public function getBlockPrefix()

@@ -7,8 +7,8 @@ use Fuz\AppBundle\Entity\Task;
 use Fuz\AppBundle\Entity\Tasks;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/troubleshoot")
@@ -29,14 +29,14 @@ class TroubleshootController extends BaseController
 
         $task = new Task();
         $task->setTask('Eat');
-        $task->setDueDate(new \DateTime("2016-03-22"));
+        $task->setDueDate(new \DateTime('2016-03-22'));
         $dataA->getTasks()->add($task);
         $dataB->getTasks()->add($task);
         $dataC->getTasks()->add($task);
 
         $task = new Task();
         $task->setTask('Sleep');
-        $task->setDueDate(new \DateTime("2016-03-23"));
+        $task->setDueDate(new \DateTime('2016-03-23'));
         $dataA->getTasks()->add($task);
         $dataB->getTasks()->add($task);
         $dataC->getTasks()->add($task);
@@ -51,14 +51,14 @@ class TroubleshootController extends BaseController
             $formC->handleRequest($request);
         }
 
-        return array(
+        return [
             'formA' => $formA->createView(),
             'dataA' => $dataA,
             'formB' => $formB->createView(),
             'dataB' => $dataB,
             'formC' => $formC->createView(),
             'dataC' => $dataC,
-        );
+        ];
     }
 
     /**
@@ -72,25 +72,25 @@ class TroubleshootController extends BaseController
      */
     public function customJqueryVersionAction(Request $request)
     {
-        $data = array('values' => ['a', 'b', 'c']);
+        $data = ['values' => ['a', 'b', 'c']];
 
         $form = $this
            ->get('form.factory')
            ->createNamedBuilder('form', Type\FormType::class, $data)
            ->add('url', Type\TextType::class)
-           ->add('values', Type\CollectionType::class, array(
+           ->add('values', Type\CollectionType::class, [
                'entry_type'    => Type\TextType::class,
-               'entry_options' => array(
+               'entry_options' => [
                    'label' => 'Value',
-               ),
-               'label'         => 'Add, move, remove values and press Submit.',
-               'allow_add'     => true,
-               'allow_delete'  => true,
-               'prototype'     => true,
-               'attr'          => array(
-                   'class' => "form-collection",
-               ),
-           ))
+               ],
+               'label'        => 'Add, move, remove values and press Submit.',
+               'allow_add'    => true,
+               'allow_delete' => true,
+               'prototype'    => true,
+               'attr'         => [
+                   'class' => 'form-collection',
+               ],
+           ])
            ->add('submit', Type\SubmitType::class)
            ->getForm()
         ;
@@ -98,7 +98,7 @@ class TroubleshootController extends BaseController
         $jquery = '';
         $form->handleRequest($request);
         if ($form->isValid()) {
-            $data = $form->getData();
+            $data   = $form->getData();
             $jquery = $form->getData()['url'];
         }
 

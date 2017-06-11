@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('fuz_quick_start');
+        $rootNode    = $treeBuilder->root('fuz_quick_start');
 
         return $treeBuilder;
     }

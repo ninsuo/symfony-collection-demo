@@ -1,6 +1,6 @@
 <?php
 
-namespace Fuz\AppBundle\Entity\PositionField;
+namespace Fuz\AppBundle\Entity\Basic\PositionField;
 
 class Action
 {

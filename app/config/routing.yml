@@ -6,7 +6,3 @@ app:
     type:     "annotation"
     prefix:   /
 
-app_options:
-    resource: "@FuzAppBundle/Controller/Options/"
-    type:     "annotation"
-    prefix:   /

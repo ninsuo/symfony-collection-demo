@@ -17,9 +17,9 @@ class FancyType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Fuz\AppBundle\Entity\Fancy',
-        ));
+        ]);
     }
 
     public function getBlockPrefix()

@@ -2,14 +2,16 @@
 
         <ul class="nav nav-tabs">
             {% for file, contents in tabs %}
-                <li {{ loop.index == 1 ? 'class="active"' : '' }}><a href="#i{{ file|md5 }}" data-toggle="tab">{{ file }}</a></li>
+                <li {{ loop.index == 1 ? 'class="active"' : '' }}><a href="#i{{ file|md5 }}" data-toggle="tab">{{ basename(file) }}</a></li>
             {% endfor %}
         </ul>
 
         <div class="tab-content">
             {% for file, contents in tabs %}
-                <div class="tab-pane {{ loop.index == 1 ? 'active' : '' }}" id="i{{ file|md5 }}">
+                <div class="tab-pane {{ loop.index == 1 ? 'active' : '' }}" id="i{{ file|md5 }}" style="min-height:1000px;">
+                    <div style="text-align:right;color:grey;font-size:14px;">File: {{ github(file) }}</div>
                     <pre><code>{{ contents }}</code></pre>
+                    <div style="text-align:right;color:grey;font-size:14px;">File: {{ github(file) }}</div>
                 </div>
             {% endfor %}
         </div>

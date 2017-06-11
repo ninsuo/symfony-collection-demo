@@ -11,16 +11,16 @@ class MyElementType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('value', TextType::class, array(
-            'required'     => false,
-        ));
+        $builder->add('value', TextType::class, [
+            'required' => false,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Fuz\AppBundle\Entity\MyElement',
-        ));
+        ]);
     }
 
     public function getBlockPrefix()

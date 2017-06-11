@@ -4,7 +4,7 @@
     <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
-{% block title %}JavaScript options : store elements position in a field{% endblock %}
+{% block title %}Store elements position in a field{% endblock %}
 
 {% block body %}
 
@@ -19,7 +19,7 @@
     {%
         form_theme form
             'jquery.collection.html.twig'
-            'FuzAppBundle:Options/PositionField:formTheme.html.twig'
+            'FuzAppBundle:Basic/PositionField:formTheme.html.twig'
     %}
 
     {{ form(form) }}
@@ -54,13 +54,13 @@
 
     {{
         tabs([
-            'Controller/Options/PositionFieldController.php',
-            'Entity/PositionField/Actions.php',
-            'Entity/PositionField/Action.php',
-            'Form/PositionField/ActionsType.php',
-            'Form/PositionField/ActionType.php',
-            'Resources/views/Options/PositionField/positionField.html.twig',
-            'Resources/views/Options/PositionField/formTheme.html.twig',
+            'Controller/Basic/PositionFieldController.php',
+            'Entity/Basic/PositionField/Actions.php',
+            'Entity/Basic/PositionField/Action.php',
+            'Form/Basic/PositionField/ActionsType.php',
+            'Form/Basic/PositionField/ActionType.php',
+            'Resources/views/Basic/PositionField/positionField.html.twig',
+            'Resources/views/Basic/PositionField/formTheme.html.twig',
         ])
     }}
 

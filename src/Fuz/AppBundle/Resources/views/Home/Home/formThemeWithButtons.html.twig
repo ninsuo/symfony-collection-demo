@@ -1,0 +1,23 @@
+
+{% block FruitType_label %}{% endblock %}
+
+{% block FruitType_widget %}
+
+    <div class="row">
+        <div class="col-md-5">
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="col-md-3">
+            <a href="#" class="collection-up btn btn-default" title="Move fruit up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+            <a href="#" class="collection-down btn btn-default" title="Move fruit down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" class="collection-remove btn btn-default" title="Delete fruit"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="#" class="collection-add btn btn-default" title="Add fruit"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        </div>
+        <div class="col-md-1">
+            <a href="#" class="collection-duplicate btn btn-default" title="Duplicate fruit"><span class="glyphicon glyphicon-th-large"></span></a>
+        </div>
+    </div>
+
+{% endblock %}

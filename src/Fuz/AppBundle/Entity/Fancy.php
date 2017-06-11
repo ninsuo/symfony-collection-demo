@@ -26,18 +26,21 @@ class Fancy
     public function setA($a)
     {
         $this->a = $a;
+
         return $this;
     }
 
     public function setB($b)
     {
         $this->b = $b;
+
         return $this;
     }
 
     public function setC($c)
     {
         $this->c = $c;
+
         return $this;
     }
 }

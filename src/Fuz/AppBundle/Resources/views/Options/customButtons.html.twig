@@ -4,7 +4,7 @@
     <script src="{{ asset('js/jquery.collection.js') }}"></script>
 {% endblock %}
 
-{% block title %}JavaScript options : customize button's layout{% endblock %}
+{% block title %}JavaScript options : customize buttons' layout{% endblock %}
 
 {% block body %}
 
@@ -12,7 +12,7 @@
 
     <p>Use <code>up</code>, <code>down</code>, <code>add</code> and <code>remove</code> options to customize your buttons.</p>
 
-    <p>Note that you can still do more advanced customization (of button's position) using your form theme.</p>
+    <p>Note that you can still do more advanced customization (of buttons' position) using form themes.</p>
 
     {% form_theme form 'jquery.collection.html.twig' %}
     {{ form(form) }}
@@ -30,8 +30,8 @@
 
     {{
         tabs([
-            'Base/BaseController.php',
             'Controller/OptionsController.php',
+            'Base/BaseController.php',
             'Resources/views/Options/customButtons.html.twig',
         ])
     }}

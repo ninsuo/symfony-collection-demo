@@ -109,7 +109,7 @@ class OptionsController extends BaseController
      */
     public function givenMinimumElementsAction(Request $request)
     {
-        return $this->createContextSample($request, 'form', array());
+        return $this->createContextSample($request, 'form', []);
     }
 
     /**
@@ -135,12 +135,12 @@ class OptionsController extends BaseController
      */
     public function dragAndDropAction(Request $request)
     {
-        return array(
-            'disabled' => $this->createAdvancedContextSample($request, 'disabled'),
-            'nobuttons' => $this->createAdvancedContextSample($request, 'nobuttons'),
+        return [
+            'disabled'    => $this->createAdvancedContextSample($request, 'disabled'),
+            'nobuttons'   => $this->createAdvancedContextSample($request, 'nobuttons'),
             'moreoptions' => $this->createAdvancedContextSample($request, 'moreoptions'),
             'startupdate' => $this->createAdvancedContextSample($request, 'startupdate'),
-       );
+       ];
     }
 
     /**

@@ -14,6 +14,9 @@ class Builder extends BaseMenu
 
         $this->addSubMenu($menu, 'Basic usage');
         $this->addRoute($menu['Basic usage'], 'A simple collection', 'basic');
+        $this->addRoute($menu['Basic usage'], 'Let\'s use entities', 'entities');
+        //$this->addRoute($menu['Basic usage'], 'Using a form theme', 'basic_form_theme');
+        //$this->addRoute($menu['Basic usage'], 'Using Doctrine', 'basic_simple_collection');
         $this->addRoute($menu['Basic usage'], 'Using a "position" column', 'positionField');
 
         $this->addSubMenu($menu, 'JavaScript Options');

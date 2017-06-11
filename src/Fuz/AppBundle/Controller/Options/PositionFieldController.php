@@ -3,9 +3,9 @@
 namespace Fuz\AppBundle\Controller\Options;
 
 use Fuz\AppBundle\Base\BaseController;
-use Fuz\AppBundle\Entity\PositionField\Action;
-use Fuz\AppBundle\Entity\PositionField\Actions;
-use Fuz\AppBundle\Form\PositionField\ActionsType;
+use Fuz\AppBundle\Entity\Options\PositionField\Action;
+use Fuz\AppBundle\Entity\Options\PositionField\Actions;
+use Fuz\AppBundle\Form\Options\PositionField\ActionsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;

@@ -6,6 +6,7 @@ web/fonts
 app/bootstrap.php.cache
 app/cache/*
 app/config/parameters.yml
+app/Resources/views/jquery.collection.html.twig
 app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep

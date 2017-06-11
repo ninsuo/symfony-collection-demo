@@ -11,16 +11,21 @@ class Builder extends BaseMenu
     {
         $menu = $this->createMenu($factory, parent::POSITION_LEFT);
         $this->addRoute($menu, 'Home', 'home');
-        $this->addRoute($menu, 'Basic usage', 'basic');
+
+        $this->addSubMenu($menu, 'Basic usage');
+        $this->addRoute($menu['Basic usage'], 'A simple collection', 'basic_simple_collection');
+        $this->addRoute($menu['Basic usage'], 'Using a form theme', 'basic_form_theme');
+        $this->addRoute($menu['Basic usage'], 'Using Doctrine', 'basic_simple_collection');
+        $this->addRoute($menu['Basic usage'], 'Using Doctrine and a "position" column', 'basic_simple_collection');
 
         $this->addSubMenu($menu, 'JavaScript Options');
-        $this->addRoute($menu['JavaScript Options'], "Custom button's layout", 'customButtons');
-        $this->addRoute($menu['JavaScript Options'], 'Enable / Disable buttons', 'enableButtons');
-        $this->addRoute($menu['JavaScript Options'], "Control number of collection's elements", 'numberCollectionElements');
+        $this->addRoute($menu['JavaScript Options'], "Custom button layout", 'customButtons');
+        $this->addRoute($menu['JavaScript Options'], 'Enable / disable buttons', 'enableButtons');
+        $this->addRoute($menu['JavaScript Options'], "Control number of collection elements", 'numberCollectionElements');
         $this->addRoute($menu['JavaScript Options'], 'Put only one Add button at the bottom', 'addButtonAtTheBottom');
         $this->addRoute($menu['JavaScript Options'], 'Button event callbacks', 'eventCallbacks');
         $this->addRoute($menu['JavaScript Options'], 'Initialization callbacks', 'initCallbacks');
-        $this->addRoute($menu['JavaScript Options'], 'Without form theme', 'withoutFormTheme');
+        $this->addRoute($menu['JavaScript Options'], 'If you don\'t want to use built-in form theme', 'withoutFormTheme');
         $this->addRoute($menu['JavaScript Options'], 'Initialized with a given minimum of elements', 'givenMinimumElements');
         $this->addRoute($menu['JavaScript Options'], 'Hide Up and Down buttons on useless elements', 'hideMoveUpDown');
         $this->addRoute($menu['JavaScript Options'], 'Drag & Drop', 'dragAndDrop');
@@ -34,7 +39,7 @@ class Builder extends BaseMenu
         $this->addRoute($menu['Advanced usage'], 'Custom form theme wtih multiple fields', 'formHavingSeveralFields');
         $this->addRoute($menu['Advanced usage'], 'Custom form theme with only one add button', 'customFormThemeAddBottom');
         $this->addRoute($menu['Advanced usage'], 'Custom form theme with several aligned fields', 'fancyFormTheme');
-        $this->addRoute($menu['Advanced usage'], 'Collection of form collections', 'collectionOfCollections');
+        $this->addRoute($menu['Advanced usage'], 'Nested form collections', 'collectionOfCollections');
         $this->addRoute($menu['Advanced usage'], 'Usage with Doctrine', 'usageWithDoctrine');
 
         $this->addSubMenu($menu, 'Troubleshoot');

@@ -7,26 +7,24 @@ Symfony Collection demo website
 
 ## Installation
 
-This is a classic Symfony project based on the 2.x version of [Symfony QuickStart](https://github.com/ninsuo/symfony2-quickstart).
-
 ```sh
 php -r "readfile('https://getcomposer.org/installer');" | php
-php composer.phar update
+php composer.phar install
 php app/console assetic:dump
 php app/console assets:install web --symlink
-php app/console server:run
+php app/console server:start
 ```
 
 ## Usage
 
-Just browse website and look at the corresponding controllers/views to know how to implement them.
+All samples have their own controllers, form types, views etc. for easier readability.
 
-Menus refer to controllers with the same name, for example:
-- Basic usage is associated with BasicController and Basic/basic.html.twig
-- Javascript options is located in OptionsController and Options/options.html.twig
-- ...
+If you go to `http://127.0.0.1:8000/options/positionField`, it means that:
 
-This way, you can easily read the sample's code.
+- Controller is at `AppBundle\Controller\Options\PositionFieldController.php`
+- Entities are at  `AppBundle\Entity\Options\PositionField`
+- Form types are at `AppBundle\Form\Options\PositionField`
+- Views and form themes are at `AppBundle\Resources\views\Options\PositionField`
 
 ## License
 

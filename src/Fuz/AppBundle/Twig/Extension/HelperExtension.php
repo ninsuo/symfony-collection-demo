@@ -16,6 +16,7 @@ class HelperExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFunction('github', [$this, 'github'], ['is_safe' => ['html']]),
             new \Twig_SimpleFunction('tabs', [$this, 'tabs'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('basename', 'basename'),
         ];
     }
 

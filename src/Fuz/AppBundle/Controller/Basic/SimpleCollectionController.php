@@ -1,6 +1,6 @@
 <?php
 
-namespace Fuz\AppBundle\Controller;
+namespace Fuz\AppBundle\Controller\Basic;
 
 use Fuz\AppBundle\Base\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -8,15 +8,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\HttpFoundation\Request;
 
-class BasicController extends BaseController
+/**
+ * @Route("/basic")
+ */
+class SimpleCollectionController extends BaseController
 {
     /**
-     * Basic usage
+     * A simple collection that even don't use an entity.
      *
-     * @Route("/basic", name="basic")
+     * @Route("/simple-collection", name="basic_simple_collection")
      * @Template()
      */
-    public function basicAction(Request $request)
+    public function simpleCollectionAction(Request $request)
     {
         $data = ['values' => ['a', 'b', 'c']];
 

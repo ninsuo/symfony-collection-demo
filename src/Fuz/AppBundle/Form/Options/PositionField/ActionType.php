@@ -1,6 +1,6 @@
 <?php
 
-namespace Fuz\AppBundle\Form\PositionField;
+namespace Fuz\AppBundle\Form\Options\PositionField;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -34,7 +34,7 @@ class ActionType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'Fuz\AppBundle\Entity\PositionField\Action',
+            'data_class' => 'Fuz\AppBundle\Entity\Options\PositionField\Action',
         ]);
     }
 

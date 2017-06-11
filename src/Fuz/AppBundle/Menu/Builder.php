@@ -17,6 +17,7 @@ class Builder extends BaseMenu
         $this->addRoute($menu['Basic usage'], 'Using a "position" column', 'positionField');
 
         $this->addSubMenu($menu, 'JavaScript Options');
+        $this->addRoute($menu['JavaScript Options'], "Overview", 'overview', [], [], true);
         $this->addRoute($menu['JavaScript Options'], "Customize buttons' layout", 'customButtons');
         $this->addRoute($menu['JavaScript Options'], 'Enable / disable buttons', 'enableButtons');
         $this->addRoute($menu['JavaScript Options'], "Control number of collection elements", 'numberCollectionElements');

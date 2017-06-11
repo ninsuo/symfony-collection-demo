@@ -12,6 +12,21 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class OptionsController extends BaseController
 {
+
+    /**
+     * JavaScript options
+     *
+     * An overview of almost all options that you
+     * can enable/disable/customize on the fly.
+     *
+     * @Route("/overview", name="overview")
+     * @Template()
+     */
+    public function overviewAction(Request $request)
+    {
+        return $this->createContextSample($request);
+    }
+
     /**
      * JavaScript options
      *
@@ -66,8 +81,7 @@ class OptionsController extends BaseController
     public function addButtonAtTheBottomAction(Request $request)
     {
         return array_merge(
-           $this->createContextSample($request, 'enabled'),
-           $this->createContextSample($request, 'disabled')
+           $this->createContextSample($request, 'enabled'), $this->createContextSample($request, 'disabled')
         );
     }
 
@@ -140,7 +154,7 @@ class OptionsController extends BaseController
             'nobuttons'   => $this->createAdvancedContextSample($request, 'nobuttons'),
             'moreoptions' => $this->createAdvancedContextSample($request, 'moreoptions'),
             'startupdate' => $this->createAdvancedContextSample($request, 'startupdate'),
-       ];
+        ];
     }
 
     /**
@@ -170,9 +184,7 @@ class OptionsController extends BaseController
     public function buttonsCustomLocationAction(Request $request)
     {
         return array_merge(
-           $this->createContextSample($request, 'collectionA'),
-           $this->createContextSample($request, 'collectionB'),
-           $this->createContextSample($request, 'collectionC')
+           $this->createContextSample($request, 'collectionA'), $this->createContextSample($request, 'collectionB'), $this->createContextSample($request, 'collectionC')
         );
     }
 

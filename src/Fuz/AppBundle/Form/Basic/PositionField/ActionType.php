@@ -16,10 +16,15 @@ class ActionType extends AbstractType
         $builder->add('id', TextType::class, [
             'attr' => [
                 'readonly' => true,
+                'autocomplete' => 'off',
             ],
         ]);
 
-        $builder->add('name', TextType::class);
+        $builder->add('name', TextType::class, [
+            'attr' => [
+                'autocomplete' => 'off',
+            ]
+        ]);
 
         // position would usually be stored in a hidden type, but here we want
         // you to see the result explicitely
@@ -27,6 +32,7 @@ class ActionType extends AbstractType
             'attr' => [
                 'readonly' => true,
                 'class'    => 'my-position', // selector is the one used on the js side
+                'autocomplete' => 'off',
             ],
         ]);
     }

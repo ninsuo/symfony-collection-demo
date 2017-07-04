@@ -1771,12 +1771,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ninsuo/symfony-collection.git",
-                "reference": "b3c9c139ab38e0b51606e1d3f61a3721c43db1d9"
+                "reference": "23accdd347cfa77718274dca5edb799bd7c8e8fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ninsuo/symfony-collection/zipball/b3c9c139ab38e0b51606e1d3f61a3721c43db1d9",
-                "reference": "b3c9c139ab38e0b51606e1d3f61a3721c43db1d9",
+                "url": "https://api.github.com/repos/ninsuo/symfony-collection/zipball/23accdd347cfa77718274dca5edb799bd7c8e8fd",
+                "reference": "23accdd347cfa77718274dca5edb799bd7c8e8fd",
                 "shasum": ""
             },
             "type": "library",
@@ -1796,7 +1796,7 @@
                 }
             ],
             "description": "A jQuery plugin that manages adding, deleting and moving elements from a Symfony collection",
-            "time": "2017-06-11 09:18:27"
+            "time": "2017-06-20 20:33:35"
         },
         {
             "name": "oyejorge/less.php",

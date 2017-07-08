@@ -1,0 +1,73 @@
+
+{% block DiscountCollectionType_widget %}
+    {{ form_row(form.productName) }}
+
+    {# form_row would write extra markup, so we directly write the collection #}
+    {{ form_widget(form.discounts) }}
+{% endblock %}
+
+{# By default, collection uses the form_widget block to create its markup, but we want a table #}
+{% block collection_widget %}
+    {% spaceless %}
+
+    {#
+     # This is almost a copy/paste of jquery.collection.html.twig, we can't use it as it also
+     # use form_widget. Note that we also use form_widget(prototype) instead of form_row(prototype)
+     # to avoid generating extra markup.
+     #}
+    {% if prototype is defined %}
+        {% set attr = attr|merge({'data-prototype': form_widget(prototype)}) %}
+        {% set attr = attr|merge({'data-prototype-name': prototype.vars.name}) %}
+    {% endif %}
+    {% set attr = attr|merge({'data-allow-add': allow_add ? 1 : 0}) %}
+    {% set attr = attr|merge({'data-allow-remove': allow_delete ? 1 : 0 }) %}
+    {% set attr = attr|merge({'data-name-prefix': full_name}) %}
+
+    <fieldset class="well">
+        <label>{{ form_label(form) }}</label>
+
+        {{ form_errors(form) }}
+
+        {# Don't forget to add the collection attributes in your markup #}
+        <table {{ block('widget_attributes') }}>
+            <thead>
+                <th>Mininal bought quantity</th>
+                <th>Maximal bought quantity</th>
+                <th>Discount (in percent)</th>
+                <th>&nbsp;</th>
+            </thead>
+            <tbody>
+
+                {#
+                 # we can't form_widget(form) as it would render parent markup for a collection, so
+                 # we iterate manually on children
+                 #}
+                {% for item in form %}
+                    {{ form_widget(item) }}
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </fieldset>
+
+    {% endspaceless %}
+{% endblock %}
+
+{% block DiscountType_widget %}
+
+    {# widget_attributes will generate class="item" from the DiscountCollectionType.entry_options configuration #}
+    <tr {{ block('widget_attributes') }}>
+        <td>{{ form_widget(form.quantityFrom) }}</td>
+        <td>{{ form_widget(form.quantityTo) }}</td>
+        <td>{{ form_widget(form.discount) }}</td>
+        <td class="text-center">
+            <a href="#" class="collection-remove btn btn-default" title="Delete element"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="#" class="collection-add btn btn-default" title="Add element"><span class="glyphicon glyphicon-plus-sign"></span></a>
+            <a href="#" class="collection-duplicate btn btn-default" title="Duplicate element"><span class="glyphicon glyphicon-th-large"></span></a>
+        </td>
+    </tr>
+
+{% endblock %}
+
+{% block DiscountType_label %}{% endblock %}
+

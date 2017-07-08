@@ -1,0 +1,75 @@
+{% extends 'FuzAppBundle::layout.html.twig' %}
+
+{% block extra_js %}
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
+{% endblock %}
+
+{% block title %}Put your collection in a table{% endblock %}
+
+{% block body %}
+
+    <h2>{{ block('title') }}</h2>
+
+    <p>
+        By default, Symfony put the collection on a <code>div</code>, and each item of the collection on nested divs.
+        So this plugin considers <code>&gt; div</code> as a default value to get collection elements. You can overwrite
+        this selector by setting <code>elements_selector</code> option.
+    </p>
+
+    <p>
+        Please note that if you choose to use a table, you'll need to have a great understanding on how form themes
+        work, because most of themes uses divs and add extra markup, thus you'll need to overwrite many blocks.
+    </p>
+
+    <hr/>
+
+    {% form_theme form 'FuzAppBundle:Basic/InATable:form-theme.html.twig' %}
+
+    {{ form(form) }}
+
+    <hr/>
+
+    {% for item in data.discounts %}
+
+        <p>
+            Buying from {{ item.quantityFrom }} to {{ item.quantityTo }} {{ data.productName }}(s)
+            will grant a {{ item.discount }}% discount.
+        </p>
+
+    {% endfor %}
+
+    <hr/>
+
+    <p>Code used:</p>
+    <pre>{{ block('script') | e }}</pre>
+
+    {{
+        tabs([
+            'Controller/Basic/InATableController.php',
+            'Entity/Basic/InATable/DiscountCollection.php',
+            'Entity/Basic/InATable/Discount.php',
+            'Form/Basic/InATable/DiscountCollectionType.php',
+            'Form/Basic/InATable/DiscountType.php',
+            'Resources/views/Basic/InATable/index.html.twig',
+            'Resources/views/Basic/InATable/form-theme.html.twig',
+        ])
+    }}
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+
+        $('.discount-collection').collection({
+            allow_duplicate: true,
+            allow_up: false,
+            allow_down: false,
+            add: '<a href="#" class="btn btn-default" title="Add element"><span class="glyphicon glyphicon-plus-sign"></span></a>',
+
+            elements_selector: 'tr.item' // here is the magic!
+        });
+
+    </script>
+
+{% endblock %}

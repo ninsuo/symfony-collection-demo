@@ -38,6 +38,7 @@ class Builder extends BaseMenu
         $this->addRoute($menu['Advanced usage'], 'Custom form theme wtih multiple fields', 'formHavingSeveralFields');
         $this->addRoute($menu['Advanced usage'], 'Custom form theme with only one add button', 'customFormThemeAddBottom');
         $this->addRoute($menu['Advanced usage'], 'Custom form theme with several aligned fields', 'fancyFormTheme');
+        $this->addRoute($menu['Advanced usage'], 'Form having several collections', 'formWithSeveralCollections');
         $this->addRoute($menu['Advanced usage'], 'Nested form collections', 'collectionOfCollections');
         $this->addRoute($menu['Advanced usage'], 'Usage with Doctrine', 'usageWithDoctrine');
 

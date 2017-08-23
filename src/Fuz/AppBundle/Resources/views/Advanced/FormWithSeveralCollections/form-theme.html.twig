@@ -1,0 +1,29 @@
+{% block city_widget %}
+
+    <div class="row">
+        <div class="col-md-10">
+            {{ form_widget(form) }}
+        </div>
+        <div class="col-md-2">
+            {# Note that "city" on classes below are the same as on "prefix" option #}
+            <a href="#" class="city-remove btn btn-default" title="Delete location"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="#" class="city-add btn btn-default" title="Add location"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block hobby_widget %}
+
+    <div class="row">
+        <div class="col-md-10">
+            {{ form_widget(form) }}
+        </div>
+        <div class="col-md-2">
+            {# Note that "hobby" on classes below are the same as on "prefix" option #}
+            <a href="#" class="hobby-remove btn btn-default" title="Delete hobby"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="#" class="hobby-add btn btn-default" title="Add hobby"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        </div>
+    </div>
+
+{% endblock %}

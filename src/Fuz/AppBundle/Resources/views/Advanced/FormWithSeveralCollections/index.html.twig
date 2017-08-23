@@ -1,0 +1,95 @@
+{% extends 'FuzAppBundle::layout.html.twig' %}
+
+{% block extra_js %}
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
+{% endblock %}
+
+{% block title %}Form or page having several collections{% endblock %}
+
+{% block body %}
+
+    <h2>{{ block('title') }}</h2>
+
+    <p>
+        To work properly, this plugin creates many elements in the dom, having their selector prefixed by default by
+        <code>collection</code>. But if you need to display several collections in the same page (in the same form
+        or not), you will need to change this prefix so a click on "add" button will add the element to the right
+        collection.
+    </p>
+
+    <p>
+        Note that if you are using a form theme and used to write add buttons having <code>collection-add</code> class,
+        plugin will in fact seek for <code>&lt;prefix&gt;-add</code>. So if you change the prefix, you'll need to adapt
+        everywhere needed.
+    </p>
+
+    <hr/>
+
+    {%
+        form_theme form
+            'jquery.collection.html.twig'
+            'FuzAppBundle:Advanced/FormWithSeveralCollections:form-theme.html.twig'
+    %}
+
+    {{ form(form) }}
+
+    <hr/>
+
+    <div class="well">
+        <p><strong>Contact information</strong>: {{ data.contact }}</p>
+
+        <p>
+            <strong>Locations</strong>:
+            {% for key, city in data.cities %}{{ key > 0 ? ', ' : '' }}{{ city.name }}{% endfor %}
+        </p>
+
+        <p>
+            <strong>Hobbies</strong>:
+            {% for key, hobby in data.hobbies %}{{ key > 0 ? ', ' : '' }}{{ hobby.type }}{% endfor %}
+        </p>
+
+        <p><strong>Other useful information</strong>: {{ data.comments|nl2br }}</p>
+    </div>
+
+    <hr/>
+
+    <p>Code used:</p>
+    <pre>{{ block('script')|e }}</pre>
+
+    {{
+        tabs([
+            'Controller/Advanced/FormWithSeveralCollectionsController.php',
+            'Entity/Advanced/FormWithSeveralCollections/Travel.php',
+            'Entity/Advanced/FormWithSeveralCollections/City.php',
+            'Entity/Advanced/FormWithSeveralCollections/Hobby.php',
+            'Form/Advanced/FormWithSeveralCollections/TravelType.php',
+            'Form/Advanced/FormWithSeveralCollections/CityType.php',
+            'Form/Advanced/FormWithSeveralCollections/HobbyType.php',
+            'Resources/views/Advanced/FormWithSeveralCollections/index.html.twig',
+            'Resources/views/Advanced/FormWithSeveralCollections/form-theme.html.twig',
+        ])
+    }}
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+
+        $('.collection-cities').collection({ /* same selector as declared in TravelType */
+            allow_up: false,
+            allow_down: false,
+
+            prefix: 'city', /* will use city-add instead of collection-add for add button, etc) */
+        });
+
+        $('.collection-hobbies').collection({ /* same selector as declared in TravelType */
+            allow_up: false,
+            allow_down: false,
+
+            prefix: 'hobby', /* will use hobby-add instead of collection-add for add button, etc) */
+        });
+
+    </script>
+
+{% endblock %}

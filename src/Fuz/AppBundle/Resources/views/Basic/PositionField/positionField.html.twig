@@ -29,15 +29,15 @@
     <table class="table">
         <thead>
             <th>ID</th>
-            <th>Position</th>
             <th>Name</th>
+            <th>Position</th>
         </thead>
         <tbody>
             {% for action in data.actions %}
                 <tr>
                     <td>{{ action.id }}</td>
-                    <td>{{ action.position }}</td>
                     <td>{{ action.name }}</td>
+                    <td>{{ action.position }}</td>
                 </tr>
             {% else %}
                 <tr>

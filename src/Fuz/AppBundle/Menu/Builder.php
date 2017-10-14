@@ -16,6 +16,7 @@ class Builder extends BaseMenu
         $this->addRoute($menu['Basic usage'], 'A simple collection', 'basic');
         $this->addRoute($menu['Basic usage'], 'Using a "position" column', 'positionField');
         $this->addRoute($menu['Basic usage'], 'Using a table instead of divs', 'inATable');
+        $this->addRoute($menu['Basic usage'], 'Doctrine & Relations', 'doctrine');
 
         $this->addSubMenu($menu, 'JavaScript Options');
         $this->addRoute($menu['JavaScript Options'], "Overview", 'overview', [], [], true);

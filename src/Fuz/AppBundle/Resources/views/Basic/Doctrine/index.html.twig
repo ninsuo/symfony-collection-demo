@@ -1,0 +1,55 @@
+{% extends 'FuzAppBundle::layout.html.twig' %}
+
+{% block extra_js %}
+    <script src="{{ asset('js/jquery.collection.js') }}"></script>
+{% endblock %}
+
+{% block title %}Doctrine and relationships between entities{% endblock %}
+
+{% block body %}
+
+    <h2>{{ block('title') }}</h2>
+
+    <p>
+        This plugin aims to help add, move and remove elements whatever their position in the dom,
+        and keep their new positions in the collection when submitting a form. For this, we need to
+        rename each field names to update indexes, and you may encounter troubles to keep your
+        entities relationships.
+    </p>
+
+    <p>
+        This example gives you a complete overview on how to use this plugin while keeping your entities relationships.
+        A Track is made of Attendees, and Attendees can be either teachers or students. Both are Individuals with a
+        name.
+    </p>
+
+    <hr/>
+
+
+    <hr/>
+
+
+    <hr/>
+
+    <p>Code used:</p>
+    <pre>{{ block('script') | e }}</pre>
+
+    {{ tabs([
+        'Controller/Basic/DoctrineController.php',
+        'Entity/Basic/Doctrine/Individual.php',
+        'Entity/Basic/Doctrine/Attendee.php',
+        'Entity/Basic/Doctrine/Track.php',
+
+    ]) }}
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+
+        $('.collection').collection({});
+
+    </script>
+
+{% endblock %}
